@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WebsiteMob — The Best Tools to Build & Grow Your Business Online</title>
+<meta name="description" content="Every tool you need to launch, run, and grow your online business. Curated, tested, and ranked by people who actually use them.">
+<link rel="canonical" href="https://websitemob.com">
+<!-- Google tag -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9M2T8LLKGH"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-9M2T8LLKGH');</script>
+<!-- AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3424397100313583" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#000000;
+  --bg2:#0a0a0a;
+  --bg3:#111111;
+  --surface:rgba(255,255,255,0.04);
+  --surface2:rgba(255,255,255,0.07);
+  --border:rgba(255,255,255,0.08);
+  --border2:rgba(255,255,255,0.14);
+
+  /* SoulstormAI palette */
+  --purple:#7c3aed;
+  --purple-light:#a855f7;
+  --purple-dim:rgba(124,58,237,0.15);
+  --yellow:#facc15;
+  --yellow-dim:rgba(250,204,21,0.1);
+
+  /* Rejected design accents */
+  --indigo:#6366f1;
+  --pink:#ec4899;
+  --grad:linear-gradient(135deg,#7c3aed,#ec4899);
+  --grad-text:linear-gradient(135deg,#a78bfa,#f472b6);
+
+  --text:#f8fafc;
+  --text2:#94a3b8;
+  --text3:#475569;
+
+  --font:'Plus Jakarta Sans',sans-serif;
+  --radius:16px;
+}
+
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+/* NOISE TEXTURE */
+body::before{
+  content:'';position:fixed;top:0;left:0;width:100%;height:100%;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:0;opacity:0.4;
+}
+
+/* GLOW ORBS */
+.orb{position:fixed;border-radius:50%;filter:blur(120px);pointer-events:none;z-index:0;opacity:0.15}
+.orb1{width:600px;height:600px;background:var(--purple);top:-200px;left:-100px}
+.orb2{width:500px;height:500px;background:var(--pink);bottom:-200px;right:-100px}
+
+/* NAV */
+nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(0,0,0,0.8);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  padding:16px 32px;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.nav-logo{
+  font-size:20px;font-weight:800;
+  background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  letter-spacing:-0.5px;
+}
+.nav-links{display:flex;gap:28px}
+.nav-links a{font-size:13px;font-weight:500;color:var(--text2);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{
+  background:var(--yellow);color:#000;
+  font-size:13px;font-weight:700;
+  padding:8px 20px;border-radius:100px;
+  text-decoration:none;transition:opacity .2s;
+}
+.nav-cta:hover{opacity:.85}
+
+/* HERO */
+.hero{
+  position:relative;z-index:1;
+  text-align:center;
+  padding:100px 24px 80px;
+  max-width:860px;margin:0 auto;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--purple-dim);border:1px solid rgba(124,58,237,0.3);
+  border-radius:100px;padding:6px 16px;
+  font-size:12px;font-weight:600;color:var(--purple-light);
+  letter-spacing:0.5px;margin-bottom:28px;
+}
+.hero h1{
+  font-size:clamp(40px,7vw,76px);
+  font-weight:800;line-height:1.05;
+  letter-spacing:-2px;
+  margin-bottom:20px;
+}
+.hero h1 .grad{background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-sub{
+  font-size:18px;font-weight:400;color:var(--text2);
+  max-width:560px;margin:0 auto 40px;line-height:1.7;
+}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-primary{
+  background:var(--grad);color:#fff;
+  padding:14px 32px;border-radius:100px;
+  font-size:15px;font-weight:700;text-decoration:none;
+  transition:opacity .2s,transform .15s;
+  box-shadow:0 0 40px rgba(124,58,237,0.4);
+}
+.btn-primary:hover{opacity:.9;transform:translateY(-1px)}
+.btn-ghost{
+  background:var(--surface);color:var(--text);
+  padding:14px 32px;border-radius:100px;
+  font-size:15px;font-weight:600;text-decoration:none;
+  border:1px solid var(--border2);transition:background .2s;
+}
+.btn-ghost:hover{background:var(--surface2)}
+
+/* STATS */
+.stats{
+  display:flex;justify-content:center;gap:48px;
+  flex-wrap:wrap;padding:48px 24px;
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  position:relative;z-index:1;
+  background:linear-gradient(to bottom,rgba(124,58,237,0.03),transparent);
+}
+.stat-num{
+  font-size:36px;font-weight:800;
+  background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  line-height:1;margin-bottom:4px;
+}
+.stat-label{font-size:12px;font-weight:500;color:var(--text3);letter-spacing:0.5px;text-transform:uppercase}
+
+/* SECTION */
+.section{position:relative;z-index:1;max-width:1140px;margin:0 auto;padding:80px 24px}
+.section-eyebrow{
+  font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;
+  color:var(--purple-light);margin-bottom:12px;
+}
+.section-title{
+  font-size:clamp(28px,4vw,42px);font-weight:800;
+  letter-spacing:-1px;line-height:1.15;
+  margin-bottom:14px;
+}
+.section-sub{font-size:16px;color:var(--text2);max-width:500px;line-height:1.7;margin-bottom:48px}
+
+/* TOOL CATEGORIES */
+.category-tabs{
+  display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px;
+}
+.cat-tab{
+  padding:8px 20px;border-radius:100px;
+  font-size:13px;font-weight:600;
+  border:1px solid var(--border);
+  background:transparent;color:var(--text2);
+  cursor:pointer;transition:all .2s;
+}
+.cat-tab.active,.cat-tab:hover{
+  background:var(--purple-dim);
+  border-color:rgba(124,58,237,0.4);
+  color:var(--purple-light);
+}
+
+/* TOOL GRID */
+.tool-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+  gap:20px;
+}
+
+/* GLASS CARD — rejected design style */
+.tool-card{
+  background:rgba(255,255,255,0.03);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:24px;
+  transition:all .3s ease;
+  position:relative;overflow:hidden;
+  text-decoration:none;color:var(--text);
+  display:flex;flex-direction:column;
+}
+.tool-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:var(--grad);opacity:0;transition:opacity .3s;
+}
+.tool-card:hover{
+  border-color:rgba(124,58,237,0.4);
+  background:rgba(124,58,237,0.05);
+  transform:translateY(-4px);
+  box-shadow:0 20px 60px rgba(0,0,0,0.4);
+}
+.tool-card:hover::before{opacity:1}
+
+.card-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:16px}
+.card-icon{
+  width:48px;height:48px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:24px;flex-shrink:0;
+  background:var(--surface2);
+}
+.card-badges{display:flex;gap:6px;flex-wrap:wrap}
+.badge{
+  font-size:10px;font-weight:700;letter-spacing:0.5px;
+  padding:3px 10px;border-radius:100px;
+  text-transform:uppercase;
+}
+.badge-top{background:rgba(250,204,21,0.15);color:var(--yellow);border:1px solid rgba(250,204,21,0.3)}
+.badge-free{background:rgba(34,197,94,0.12);color:#4ade80;border:1px solid rgba(34,197,94,0.25)}
+.badge-hot{background:rgba(239,68,68,0.12);color:#f87171;border:1px solid rgba(239,68,68,0.25)}
+.badge-new{background:var(--purple-dim);color:var(--purple-light);border:1px solid rgba(124,58,237,0.3)}
+
+.card-name{
+  font-size:18px;font-weight:700;letter-spacing:-0.3px;
+  margin-bottom:6px;
+}
+.card-desc{font-size:14px;color:var(--text2);line-height:1.6;flex:1;margin-bottom:20px}
+
+.card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:auto}
+.card-commission{
+  font-size:12px;font-weight:600;color:var(--purple-light);
+  display:flex;align-items:center;gap:4px;
+}
+.card-cta{
+  font-size:13px;font-weight:700;color:#fff;
+  background:var(--grad);
+  padding:8px 18px;border-radius:100px;
+  display:inline-flex;align-items:center;gap:6px;
+  transition:opacity .2s;
+}
+.card-cta:hover{opacity:.85}
+
+/* FEATURED CARD */
+.tool-card.featured{
+  grid-column:span 2;
+  background:linear-gradient(135deg,rgba(124,58,237,0.12),rgba(236,72,153,0.06));
+  border-color:rgba(124,58,237,0.3);
+}
+.tool-card.featured .card-name{font-size:22px}
+
+/* DIVIDER */
+.divider{border:none;border-top:1px solid var(--border);margin:0}
+
+/* HOW IT WORKS */
+.steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px}
+.step-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:28px 24px;
+}
+.step-num{
+  font-size:42px;font-weight:800;
+  background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  line-height:1;margin-bottom:12px;
+}
+.step-title{font-size:16px;font-weight:700;margin-bottom:8px}
+.step-desc{font-size:14px;color:var(--text2);line-height:1.6}
+
+/* CTA BANNER */
+.cta-banner{
+  position:relative;z-index:1;
+  background:linear-gradient(135deg,rgba(124,58,237,0.2),rgba(236,72,153,0.1));
+  border:1px solid rgba(124,58,237,0.25);
+  border-radius:24px;
+  padding:56px 40px;text-align:center;
+  margin:0 24px 80px;max-width:1092px;
+  margin-left:auto;margin-right:auto;
+}
+.cta-banner h2{font-size:clamp(28px,4vw,44px);font-weight:800;letter-spacing:-1px;margin-bottom:14px}
+.cta-banner p{font-size:16px;color:var(--text2);max-width:460px;margin:0 auto 32px;line-height:1.7}
+
+/* FOOTER */
+footer{
+  position:relative;z-index:1;
+  border-top:1px solid var(--border);
+  padding:32px 24px;text-align:center;
+  color:var(--text3);font-size:12px;
+}
+footer a{color:var(--text2);text-decoration:none}
+
+/* FADE IN */
+.fade{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+.fade.in{opacity:1;transform:translateY(0)}
+
+@media(max-width:680px){
+  nav{padding:14px 20px}
+  .nav-links{display:none}
+  .tool-card.featured{grid-column:span 1}
+  .stats{gap:28px}
+  .section{padding:60px 20px}
+}
+</style>
+</head>
+<body>
+
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+
+<nav>
+  <div class="nav-logo">WebsiteMob</div>
+  <div class="nav-links">
+    <a href="#tools">Tools</a>
+    <a href="#stores">Stores</a>
+    <a href="#comms">Communication</a>
+    <a href="#freelance">Freelance</a>
+  </div>
+  <a href="https://shopify.pxf.io/jeNZea" class="nav-cta" onclick="gtag('event','affiliate_click',{affiliate:'shopify',placement:'nav'})">Start Free →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero fade">
+  <div class="hero-badge">⚡ 14 Tools Curated & Ranked</div>
+  <h1>Every tool to build your<br><span class="grad">business online.</span></h1>
+  <p class="hero-sub">We tested them. We use them. We ranked them. Stop wasting hours Googling — everything you need is right here.</p>
+  <div class="hero-btns">
+    <a href="#tools" class="btn-primary">Browse All Tools →</a>
+    <a href="https://shopify.pxf.io/jeNZea" class="btn-ghost" onclick="gtag('event','affiliate_click',{affiliate:'shopify',placement:'hero'})">Start Your Store Free</a>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats fade">
+  <div class="stat"><div class="stat-num">14</div><div class="stat-label">Tools Reviewed</div></div>
+  <div class="stat"><div class="stat-num">$0</div><div class="stat-label">Cost to Browse</div></div>
+  <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Honest Reviews</div></div>
+  <div class="stat"><div class="stat-num">∞</div><div class="stat-label">Potential Upside</div></div>
+</div>
+
+<!-- TOOLS SECTION -->
+<section class="section" id="tools">
+  <div class="section-eyebrow">🛠 The Full Stack</div>
+  <h2 class="section-title">Build it. Grow it. Monetize it.</h2>
+  <p class="section-sub">Everything from storefront to shipping to social. Every link here is one we actually recommend.</p>
+
+  <div class="category-tabs">
+    <button class="cat-tab active">All Tools</button>
+    <button class="cat-tab">🏪 Online Stores</button>
+    <button class="cat-tab">📦 Shipping</button>
+    <button class="cat-tab">📞 Communication</button>
+    <button class="cat-tab">💼 Freelance</button>
+    <button class="cat-tab">📊 Social Media</button>
+    <button class="cat-tab">🤖 AI Tools</button>
+    <button class="cat-tab">🌍 Languages</button>
+  </div>
+
+  <div class="tool-grid">
+
+    <!-- SHOPIFY — FEATURED -->
+    <a href="https://shopify.pxf.io/jeNZea" class="tool-card featured fade" onclick="gtag('event','affiliate_click',{affiliate:'shopify',placement:'card'})">
+      <div class="card-header">
+        <div class="card-icon">🛍️</div>
+        <div class="card-badges">
+          <span class="badge badge-top">⭐ #1 Pick</span>
+          <span class="badge badge-hot">🔥 Hot</span>
+        </div>
+      </div>
+      <div class="card-name">Shopify — Start Your Online Store</div>
+      <div class="card-desc">The undisputed king of e-commerce. Build a professional store in minutes, sell anywhere — online, in-person, social media. Over 2 million businesses run on Shopify. Free trial, no credit card required. If you're serious about selling online, this is where you start.</div>
+      <div class="card-footer">
+        <div class="card-commission">💰 Free trial available</div>
+        <span class="card-cta">Start Free →</span>
+      </div>
+    </a>
+
+    <!-- BASE44 -->
+    <a href="https://base44.pxf.io/c/6821189/2049275/25619?trafcat=base" class="tool-card fade" onclick="gtag('event','affiliate_click',{affiliate:'base44',placement:'card'})">
+      <div class="card-header">
+        <div class="card-icon">🤖</div>
+        <div class="card-badges">
+          <span class="badge badge-new">✨ New</span>
+        </div>
+      </div>
+      <div class="card-name">Base44 — AI App Builder</div>
+      <div class="card-desc">Build fully functional web apps using AI — no code required. Describe what you want, Base44 builds it. Databases, logic, UI — everything. Perfect for non-developers who have an idea and need it built fast.</div>
+      <div class="card-footer">
+        <div class="card-commission">💰 Free plan available</div>
+        <span class="card-cta">Try It Free →</span>
+      </div>
+    </a>
+
+    <!-- EASYSHIP -->
+    <a href="https://easyship.ilbqy6.net/JK9RW2" class="tool-card fade" onclick="gtag('event','affiliate_click',{affiliate:'easyship',placement:'card'})">
+      <div class="card-header">
+        <div class="card-icon">📦</div>
+        <div class="card-badges">
+          <span class="badge badge-free">Free Plan</span>
+        </div>
+      </div>
+      <div class="card-name">Easyship — Shipping for Online Stores</div>
+      <div class="card-desc">Compare rates from 250+ couriers instantly. Automatically calculate duties and taxes. Print labels, track shipments, and offer real-time rates at checkout. Cuts shipping costs by up to 91%. Essential if you're selling physical products online.</div>
+      <div class="card-footer">
+        <div class="card-commission">💰 Free for up to 50 shipments/mo</div>
+        <span class="card-cta">Ship Smarter →</span>
+      </div>
+    </a>
+
+    <!-- NEXTIVA -->
+    <a href="https://nextiva.7eer.net/vP5xDW" class="tool-card fade" onclick="gtag('event','affiliate_click',{affiliate:'nextiva',placement:'card'})">
+      <div class="card-header">
+        <div class="card-icon">📞</div>
+        <div class="card-badges">
+          <span class="badge badge-top">⭐ Best Biz Phone</span>
+        </div>
+      </div>
+      <div class="card-name">Nextiva — Business Phone & Communications</div>
+      <div class="card-desc">All-in-one business communication: phone, video, SMS, and team chat in one platform. Used by 100,000+ businesses. Looks professional from day one — get a business number, auto-attendant, call routing, and CRM integrations. Stop using your personal number for business.</div>
+      <div class="card-footer">
+        <div class="card-commission">💰 Plans from $20/mo</div>
+        <span class="card-cta">Get Business Phone →</span>
+      </div>
+    </a>
+
+    <!-- VISTASOCIAL -->
+    <a href="https://vistasocial.sjv.io/BnNR1B" class="tool-card fade" onclick="gtag('event','affiliate_click',{affiliate:'vistasocial',placement:'card'})">
+      <div class="card-header">
+        <div class="card-icon">📊</div>
+        <div class="card-badges">
+          <span class="badge badge-free">Free Plan</span>
+          <span class="badge badge-hot">🔥 Popular</span>
+        </div>
+      </div>
+      <div class="card-name">VistaSocial — Social Media Management</div>
+      <div class="card-desc">Schedule, publish, and analyze posts across all platforms from one dashboard. Instagram, TikTok, Facebook, LinkedIn, Pinterest, YouTube. Includes AI content assistant, link in bio pages, and review management. The Hootsuite alternative that doesn't cost a fortune.</div>
+      <div class="card-footer">
+        <div class="card-commission">💰 Free forever plan — paid from $15/mo</div>
+        <span class="card-cta">Manage Social →</span>
+      </div>
+    </a>
+
+    <!-- FIVERR -->
+    <a href="https://www.fiverr.com/pe/99ZKZZK" class="tool-card fade" onclick="gtag('event','affiliate_click',{affiliate:'fiverr',placement:'card'})">
+      <div class="card-header">
+        <div class="card-icon">💼</div>
+        <div class="card-badges">
+          <span class="badge badge-top">⭐ Top Rated</span>
+        </div>
+      </div>
+      <div class="card-name">Fiverr — Hire a Freelancer</div>
+      <div class="card-desc">Need a logo, a website, copy, video editing, or a developer? Fiverr has 500,000+ vetted freelancers starting at $5. Get your business assets done without hiring full-time. Also a great platform to earn extra income by selling your own skills.</div>
+      <div class="card-footer">
+        <div class="card-commission">💰 Services from $5</div>
+        <span class="card-cta">Hire or Earn →</span>
+      </div>
+    </a>
+
+    <!-- UBER DRIVER -->
+    <a href="https://drivers.uber.com/i/u9zpq8d" class="tool-card fade" onclick="gtag('event','affiliate_click',{affiliate:'uber',placement:'card'})">
+      <div class="card-header">
+        <div class="card-icon">🚗</div>
+        <div class="card-badges">
+          <span class="badge badge-hot">💵 Instant Cash</span>
+        </div>
+      </div>
+      <div class="card-name">Uber Driver — Earn on Your Schedule</div>
+      <div class="card-desc">While your website builds momentum, drive with Uber to keep cash flowing. Set your own hours, get paid weekly, and earn bonuses for peak hours. No boss, no schedule, no minimum hours. The fastest way to add income while your online business grows.</div>
+      <div class="card-footer">
+        <div class="card-commission">💰 Signup bonus available</div>
+        <span class="card-cta">Start Driving →</span>
+      </div>
+    </a>
+
+    <!-- PREPLY -->
+    <a href="https://preply.sjv.io/qW26d5" class="tool-card fade" onclick="gtag('event','affiliate_click',{affiliate:'preply',placement:'card'})">
+      <div class="card-header">
+        <div class="card-icon">🌍</div>
+        <div class="card-badges">
+          <span class="badge badge-new">📚 Skill Up</span>
+        </div>
+      </div>
+      <div class="card-name">Preply — Language Tutoring Online</div>
+      <div class="card-desc">Teach a language online and earn $15-40/hour. If you speak more than one language fluently, Preply lets you set your own schedule and rates. Over 50,000 tutors from 180 countries. Also great for hiring multilingual support for your growing business.</div>
+      <div class="card-footer">
+        <div class="card-commission">💰 Tutors earn $15-40/hr</div>
+        <span class="card-cta">Teach or Learn →</span>
+      </div>
+    </a>
+
+    <!-- 1ST PHORM -->
+    <a href="https://1stphorm.sjv.io/OYmdAQ" class="tool-card fade" onclick="gtag('event','affiliate_click',{affiliate:'1stphorm',placement:'card'})">
+      <div class="card-header">
+        <div class="card-icon">💪</div>
+        <div class="card-badges">
+          <span class="badge badge-hot">🔥 High Commission</span>
+        </div>
+      </div>
+      <div class="card-name">1st Phorm — Premium Supplements Affiliate</div>
+      <div class="card-desc">If your audience is into fitness, health, or performance, 1st Phorm's affiliate program pays well. Premium supplement brand with cult-level loyalty. High average order value means higher commission per sale. Promote what people already want to buy.</div>
+      <div class="card-footer">
+        <div class="card-commission">💰 Commission per sale</div>
+        <span class="card-cta">Join Program →</span>
+      </div>
+    </a>
+
+    <!-- MULERUN -->
+    <a href="https://mulerun.pxf.io/yZm6NV" class="tool-card fade" onclick="gtag('event','affiliate_click',{affiliate:'mulerun',placement:'card'})">
+      <div class="card-header">
+        <div class="card-icon">🔌</div>
+        <div class="card-badges">
+          <span class="badge badge-new">✨ New</span>
+        </div>
+      </div>
+      <div class="card-name">Mulerun — API Automation</div>
+      <div class="card-desc">Connect your apps and automate workflows without writing code. Zapier alternative with powerful API integration tools. Perfect for business owners who want to automate repetitive tasks — form submissions, notifications, data syncing — without hiring a developer.</div>
+      <div class="card-footer">
+        <div class="card-commission">💰 Free tier available</div>
+        <span class="card-cta">Automate Now →</span>
+      </div>
+    </a>
+
+    <!-- OFTHEMALL -->
+    <a href="https://ofthemall.sjv.io/7XJ0gA" class="tool-card fade" onclick="gtag('event','affiliate_click',{affiliate:'ofthemall',placement:'card'})">
+      <div class="card-header">
+        <div class="card-icon">🛒</div>
+        <div class="card-badges">
+          <span class="badge badge-new">🏪 Marketplace</span>
+        </div>
+      </div>
+      <div class="card-name">OfTheMall — Online Marketplace</div>
+      <div class="card-desc">Sell your products in an established marketplace and reach buyers who are already looking. Great for small sellers who want additional sales channels alongside their own store. List your products and let the marketplace traffic work for you.</div>
+      <div class="card-footer">
+        <div class="card-commission">💰 Commission on sales</div>
+        <span class="card-cta">Start Selling →</span>
+      </div>
+    </a>
+
+    <!-- WINEEXPRESS -->
+    <a href="https://wineexpress.vneoga.net/WyZ20J" class="tool-card fade" onclick="gtag('event','affiliate_click',{affiliate:'wineexpress',placement:'card'})">
+      <div class="card-header">
+        <div class="card-icon">🍷</div>
+        <div class="card-badges">
+          <span class="badge badge-top">⭐ Lifestyle</span>
+        </div>
+      </div>
+      <div class="card-name">Wine Express — Premium Wine Delivery</div>
+      <div class="card-desc">If your audience appreciates the finer things, Wine Express delivers premium wines directly to their door. Great affiliate niche with high average order values and recurring customers. Perfect for lifestyle, food, or entertainment content creators.</div>
+      <div class="card-footer">
+        <div class="card-commission">💰 Commission per order</div>
+        <span class="card-cta">Shop Wines →</span>
+      </div>
+    </a>
+
+    <!-- REWARX -->
+    <a href="https://rewarxlimited.pxf.io/QY6dDP" class="tool-card fade" onclick="gtag('event','affiliate_click',{affiliate:'rewarx',placement:'card'})">
+      <div class="card-header">
+        <div class="card-icon">🎁</div>
+        <div class="card-badges">
+          <span class="badge badge-new">✨ New</span>
+        </div>
+      </div>
+      <div class="card-name">Rewarx — Customer Rewards Platform</div>
+      <div class="card-desc">Add a loyalty and rewards program to your business without complex setup. Keep customers coming back with points, referrals, and perks. Proven to increase repeat purchase rates by 30%+. If you have an existing customer base, rewards programs print money.</div>
+      <div class="card-footer">
+        <div class="card-commission">💰 Plans available</div>
+        <span class="card-cta">Reward Customers →</span>
+      </div>
+    </a>
+
+    <!-- SHENZHEN SHUTTER -->
+    <a href="https://shenzhenshuttertechnologycoltd.sjv.io/4aWnV9" class="tool-card fade" onclick="gtag('event','affiliate_click',{affiliate:'shutter',placement:'card'})">
+      <div class="card-header">
+        <div class="card-icon">📸</div>
+        <div class="card-badges">
+          <span class="badge badge-new">📷 Tech</span>
+        </div>
+      </div>
+      <div class="card-name">Shenzhen Shutter — Camera Tech</div>
+      <div class="card-desc">Premium camera equipment and photography tech at competitive prices. Perfect for content creators, photographers, and businesses that need quality visual assets. If your content requires great imagery, having the right gear makes all the difference.</div>
+      <div class="card-footer">
+        <div class="card-commission">💰 Commission per sale</div>
+        <span class="card-cta">Shop Gear →</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- HOW IT WORKS -->
+<section class="section">
+  <div class="section-eyebrow">⚙️ How We Pick</div>
+  <h2 class="section-title">We only list what we'd actually use</h2>
+  <p class="section-sub">Every tool here passed a simple test: would we recommend it to a friend starting a business?</p>
+
+  <div class="steps-grid fade">
+    <div class="step-card">
+      <div class="step-num">01</div>
+      <div class="step-title">We test it ourselves</div>
+      <div class="step-desc">No tools make this list without being actually used. Not press releases, not sponsored demos.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">02</div>
+      <div class="step-title">We check the real reviews</div>
+      <div class="step-desc">Reddit, G2, Capterra, Trustpilot. What are actual paying customers saying after 6 months?</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">03</div>
+      <div class="step-title">We rank by value, not commission</div>
+      <div class="step-desc">The best tool gets the top spot regardless of what it pays us. Your trust is worth more.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">04</div>
+      <div class="step-title">We update constantly</div>
+      <div class="step-desc">Tools change. Pricing changes. We keep every listing current so you're never looking at stale info.</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CTA BANNER -->
+<div class="cta-banner fade">
+  <h2>Ready to build something real?</h2>
+  <p>Start with Shopify — the most powerful e-commerce platform on earth. Free trial, no credit card needed.</p>
+  <div class="hero-btns">
+    <a href="https://shopify.pxf.io/jeNZea" class="btn-primary" onclick="gtag('event','affiliate_click',{affiliate:'shopify',placement:'cta_banner'})">Start Your Free Trial →</a>
+    <a href="https://www.fiverr.com/pe/99ZKZZK" class="btn-ghost" onclick="gtag('event','affiliate_click',{affiliate:'fiverr',placement:'cta_banner'})">Hire a Web Expert</a>
+  </div>
+</div>
+
+<!-- ADSENSE -->
+<div style="max-width:1140px;margin:0 auto 60px;padding:0 24px;">
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3424397100313583" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<footer>
+  <p style="margin-bottom:6px;">© 2026 WebsiteMob · <a href="#">Privacy Policy</a> · <a href="#">Affiliate Disclosure</a></p>
+  <p>This site contains affiliate links. We may earn a commission at no extra cost to you. All opinions are our own.</p>
+</footer>
+
+<script>
+// Fade in on scroll
+const io = new IntersectionObserver(e => {
+  e.forEach(el => { if(el.isIntersecting){ el.target.classList.add('in'); io.unobserve(el.target); } });
+},{threshold:0.1});
+document.querySelectorAll('.fade').forEach(el => io.observe(el));
+
+// Category tabs
+document.querySelectorAll('.cat-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+  });
+});
+</script>
+
+</body>
+</html>
