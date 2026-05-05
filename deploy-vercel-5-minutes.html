@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="From folder to live URL in under 5 minutes. Deploy any website or app to Vercel — no terminal, no DevOps, no account needed to start.">
+<title>Deploy to Vercel in Under 5 Minutes | WebsiteMob</title>
+<link rel="canonical" href="https://websitemob.com/deploy-vercel-5-minutes">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9M2T8LLKGH"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-9M2T8LLKGH');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3424397100313583" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&family=Barlow+Condensed:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--void:#04060D;--dark:#080C18;--surface:#0D1220;--cyan:#00E5FF;--cyan-dim:#009BB5;--amber:#FF8C00;--magenta:#FF2D78;--green:#39FF14;--mist:rgba(0,229,255,0.08);--rule:rgba(0,229,255,0.15);--text:#C8D8E8;--text2:#7A96B0;--text3:#3D5570}
+html{scroll-behavior:smooth}
+body{background:var(--void);color:var(--text);font-family:'Source Serif 4',Georgia,serif;font-size:18px;font-weight:300;line-height:1.8;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.05) 2px,rgba(0,0,0,0.05) 4px);pointer-events:none;z-index:999}
+nav{background:var(--dark);border-bottom:1px solid var(--rule);display:flex;align-items:stretch;padding:0;position:sticky;top:0;z-index:100;overflow-x:auto}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:.05em;color:var(--cyan);text-decoration:none;padding:12px 20px;border-right:1px solid var(--rule);white-space:nowrap;text-shadow:0 0 20px rgba(0,229,255,0.4)}
+nav a{font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:.15em;padding:12px 16px;color:var(--text2);text-decoration:none;border-right:1px solid var(--rule);display:flex;align-items:center;white-space:nowrap;transition:all .15s}
+nav a:hover{color:var(--cyan);background:var(--mist)}
+nav .back{color:var(--amber)}
+.article-header{max-width:800px;margin:0 auto;padding:56px 24px 40px;border-bottom:1px solid var(--rule)}
+.art-kicker{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:.25em;color:var(--cyan-dim);margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.art-kicker::before{content:'//'}
+.art-kicker .sep{color:var(--rule)}
+.art-hed{font-family:'Barlow Condensed',sans-serif;font-size:clamp(36px,6vw,72px);font-weight:900;line-height:.95;text-transform:uppercase;letter-spacing:-.02em;color:#fff;margin-bottom:24px}
+.art-hed em{font-style:italic;color:var(--cyan);text-shadow:0 0 20px rgba(0,229,255,0.3)}
+.art-dek{font-size:20px;font-weight:300;color:var(--text2);line-height:1.6;margin-bottom:28px;border-left:3px solid var(--amber);padding-left:20px}
+.art-meta{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:.12em;color:var(--text3);display:flex;gap:16px;flex-wrap:wrap;padding-top:20px;border-top:1px solid var(--rule)}
+.article-body{max-width:800px;margin:0 auto;padding:40px 24px}
+.article-body p{margin-bottom:24px;color:var(--text)}
+.article-body h2{font-family:'Barlow Condensed',sans-serif;font-size:32px;font-weight:700;text-transform:uppercase;letter-spacing:.02em;color:#fff;margin:48px 0 16px;padding-bottom:12px;border-bottom:1px solid var(--rule)}
+.article-body strong{color:#fff;font-weight:400}
+.article-body a{color:var(--cyan);text-decoration:none}
+.step-box{background:var(--surface);border:1px solid var(--rule);padding:20px 24px;margin:16px 0;display:grid;grid-template-columns:48px 1fr;gap:16px;align-items:start}
+.step-num{font-family:'Bebas Neue',sans-serif;font-size:40px;color:var(--amber);line-height:1}
+.step-title{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;text-transform:uppercase;color:#fff;margin-bottom:8px}
+.step-body{font-family:'Share Tech Mono',monospace;font-size:12px;color:var(--text2);line-height:1.7}
+.step-body code{color:var(--cyan);background:rgba(0,229,255,0.08);padding:2px 6px;font-size:11px}
+.tip-box{background:rgba(57,255,20,0.04);border:1px solid rgba(57,255,20,0.15);padding:16px 20px;margin:16px 0;font-family:'Share Tech Mono',monospace;font-size:12px;color:var(--text2);line-height:1.7}
+.tip-box strong{color:var(--green);font-weight:400}
+.warn-box{background:rgba(255,140,0,0.05);border:1px solid rgba(255,140,0,0.2);padding:16px 20px;margin:16px 0;font-family:'Share Tech Mono',monospace;font-size:12px;color:var(--text2);line-height:1.7}
+.warn-box strong{color:var(--amber);font-weight:400}
+.pull-quote{background:var(--surface);border-left:4px solid var(--cyan);padding:24px 28px;margin:32px 0;font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:700;line-height:1.2;color:#fff;text-transform:uppercase}
+.pull-quote span{color:var(--cyan)}
+.ad-slot{padding:20px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin:32px 0}
+.ad-label{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:.2em;color:var(--text3);text-align:center;margin-bottom:8px}
+.related{max-width:800px;margin:0 auto;padding:0 24px 60px}
+.related-label{font-family:'Bebas Neue',sans-serif;font-size:12px;letter-spacing:.3em;color:var(--void);background:var(--cyan);padding:8px 16px;display:inline-block;margin-bottom:20px}
+.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.related-card{background:var(--surface);border:1px solid var(--rule);padding:20px;text-decoration:none;color:inherit;transition:background .15s;display:block}
+.related-card:hover{background:var(--mist)}
+.related-kicker{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.15em;color:var(--cyan-dim);margin-bottom:8px}
+.related-title{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;text-transform:uppercase;color:#fff;line-height:1.2}
+.related-card:hover .related-title{color:var(--cyan)}
+footer{border-top:2px solid var(--cyan);background:var(--dark);padding:20px 24px;text-align:center;font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.1em;color:var(--text3)}
+footer a{color:var(--cyan);text-decoration:none}
+@media(max-width:600px){.article-header,.article-body,.related{padding-left:16px;padding-right:16px}.related-grid{grid-template-columns:1fr}.step-box{grid-template-columns:36px 1fr}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="/" class="nav-logo">WEBSITEMOB</a>
+  <a href="/" class="back">← Back</a>
+  <a href="/#blog">// Blog</a>
+  <a href="/#tools">// Tools</a>
+  <a href="/#newsletter">// Subscribe</a>
+</nav>
+
+<div class="article-header">
+  <div class="art-kicker">QUICK GUIDE <span class="sep">//</span> DEPLOYMENT <span class="sep">//</span> 3 MIN READ</div>
+  <h1 class="art-hed">Deploy to Vercel<br>in Under <em>5 Minutes</em></h1>
+  <p class="art-dek">From folder to live URL. No terminal, no DevOps knowledge, no credit card to start. Works on Windows, Mac, or Linux. Works for HTML files, Next.js apps, and everything in between.</p>
+  <div class="art-meta"><span>// BY WEBSITEMOB</span><span>// MAY 2026</span><span>// 3 MIN READ</span></div>
+</div>
+
+<div class="article-body">
+
+  <p>Vercel is the fastest way to get a website or app live on the internet. It's free for personal projects, handles all the server infrastructure for you, gives you a live URL the second you deploy, and auto-redeploys every time you push a change. For vibe coders, it's the default choice.</p>
+
+  <p>There are two ways to deploy to Vercel: drag-and-drop (fastest, no GitHub needed) and GitHub-connected (best for ongoing projects). This guide covers both.</p>
+
+  <h2>Method 1 — Drag and Drop (Fastest)</h2>
+  <p>Use this when you have a folder of files and you just want it live. No Git, no terminal, nothing to install.</p>
+
+  <div class="step-box">
+    <div class="step-num">01</div>
+    <div><div class="step-title">Create a Vercel account</div><div class="step-body">Go to <a href="https://vercel.com" target="_blank" rel="noopener" style="color:var(--cyan)">vercel.com</a> and sign up — free, no credit card needed. Sign in with GitHub if you have one, or email works fine too.</div></div>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">02</div>
+    <div><div class="step-title">Go to the dashboard</div><div class="step-body">Once logged in, you'll see your Vercel dashboard. Look for the big <code>+ New Project</code> button or the <code>Add New</code> dropdown in the top right.</div></div>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">03</div>
+    <div><div class="step-title">Drag your folder</div><div class="step-body">On the new project screen, scroll down to find the drag-and-drop area. Drag your entire project folder (the one containing your <code>index.html</code> or <code>package.json</code>) directly onto it. Vercel detects your framework automatically.</div></div>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">04</div>
+    <div><div class="step-title">Hit Deploy</div><div class="step-body">Click the Deploy button. Vercel builds and deploys your project. Takes 10–60 seconds. When it's done, you get a live URL that looks like <code>yourproject.vercel.app</code> — share it immediately.</div></div>
+  </div>
+
+  <div class="tip-box"><strong>// TIP:</strong> For a static HTML site (just an index.html file), create a folder with your file inside it before dragging. Vercel needs a folder, not a single file.</div>
+
+  <div class="ad-slot"><div class="ad-label">// Advertisement //</div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3424397100313583" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+
+  <h2>Method 2 — GitHub Connected (Best for Ongoing Projects)</h2>
+  <p>Connect your GitHub repo once. Every time you push to main, Vercel auto-redeploys. No manual steps required ever again.</p>
+
+  <div class="step-box">
+    <div class="step-num">01</div>
+    <div><div class="step-title">Push your project to GitHub</div><div class="step-body">If you don't have a GitHub account, create one free at <a href="https://github.com" target="_blank" rel="noopener" style="color:var(--cyan)">github.com</a>. Create a new repository (public or private), upload your files, and push.</div></div>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">02</div>
+    <div><div class="step-title">Import to Vercel</div><div class="step-body">On Vercel's new project screen, choose "Import Git Repository." Connect your GitHub account if prompted. Find your repo in the list and click Import.</div></div>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">03</div>
+    <div><div class="step-title">Configure (usually skip this)</div><div class="step-body">Vercel auto-detects Next.js, React, Vue, Vite, and most frameworks. For static HTML sites, make sure Framework Preset is set to "Other." You don't need to change anything else.</div></div>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">04</div>
+    <div><div class="step-title">Deploy and forget</div><div class="step-body">Click Deploy. Done. From now on, every push to your GitHub main branch automatically deploys. Your site is always up to date with whatever's in your repo.</div></div>
+  </div>
+
+  <h2>Adding a Custom Domain</h2>
+  <p>Your free Vercel URL (<code>yourproject.vercel.app</code>) works immediately. To use a custom domain you own:</p>
+  <p>Go to your project in Vercel → Settings → Domains → Add your domain. Vercel gives you DNS records to add in your domain registrar or Cloudflare. Copy the CNAME record, paste it in your DNS settings, and wait 5–30 minutes for it to propagate. Done — your custom domain is live.</p>
+
+  <div class="pull-quote">Every push to GitHub.<br><span>Auto-deploys.</span><br>No manual steps.<br>Ever again.</div>
+
+  <h2>Common Issues and Fixes</h2>
+
+  <div class="warn-box"><strong>// ISSUE: "Build failed"</strong> — Usually a missing dependency or a file with a syntax error. Check the build logs in Vercel's dashboard for the exact error message. For static HTML sites, make sure your index.html doesn't reference files that don't exist.</div>
+
+  <div class="warn-box"><strong>// ISSUE: "requirements.txt parse error"</strong> — If you have a Python backend, make sure requirements.txt has no BOM character at the start. Open it in VS Code, look at the bottom-right for "UTF-8 with BOM" — if you see BOM, save it as plain UTF-8.</div>
+
+  <div class="warn-box"><strong>// ISSUE: Page loads but assets are missing</strong> — Check your file paths. In Vercel, paths are case-sensitive. If your CSS file is <code>Style.css</code> but your HTML links to <code>style.css</code>, it won't load on Vercel even if it works locally on Windows.</div>
+
+  <div class="ad-slot"><div class="ad-label">// Advertisement //</div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3424397100313583" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+
+  <h2>Vercel Pricing</h2>
+  <p>The Hobby plan is completely free and covers most personal and small projects: unlimited deployments, 100GB bandwidth/month, custom domains, SSL certificates, and edge network distribution. You hit limits only when you're running serious production traffic, at which point the Pro plan ($20/user/month) makes sense.</p>
+  <p>For every app you build while learning vibe coding, the free plan is more than enough.</p>
+
+</div>
+
+<div class="related">
+  <span class="related-label">// CONTINUE READING</span>
+  <div class="related-grid">
+    <a href="/what-is-vibe-coding" class="related-card"><div class="related-kicker">// FEATURE</div><div class="related-title">What Is Vibe Coding — And Why Everyone Is Doing It Now</div></a>
+    <a href="/best-ai-coding-tools-2026" class="related-card"><div class="related-kicker">// RANKED</div><div class="related-title">Best AI Coding Tools in 2026, Ranked</div></a>
+    <a href="/how-to-make-money-from-ai-apps" class="related-card"><div class="related-kicker">// INCOME</div><div class="related-title">How to Make Money From Apps You Build With AI</div></a>
+    <a href="/ai-orchestra-method" class="related-card"><div class="related-kicker">// STRATEGY</div><div class="related-title">The AI Orchestra Method</div></a>
+  </div>
+</div>
+<footer><a href="/">WEBSITEMOB</a> &nbsp;//&nbsp; VIBE CODING DISPATCH &nbsp;//&nbsp; <a href="https://soulstormai.com">SOULSTORMAI</a> &nbsp;//&nbsp; AFFILIATE DISCLOSURE: THIS SITE CONTAINS AFFILIATE LINKS. WE EARN COMMISSION AT NO COST TO YOU.</footer>
+</body>
+</html>
