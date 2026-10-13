@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Claude Fable 5 tops every benchmark. Gemini 4 enters post-training. Meta launches Hatch. The AI race just shifted gear — again. WebsiteMob Dispatch 002, October 2026.">
+<title>WEBSITEMOB — Dispatch 002 — The Model Race, October 2026</title>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9M2T8LLKGH"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-9M2T8LLKGH');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3424397100313583" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,900;1,300;1,700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --void:#04060D;
+  --dark:#080C18;
+  --surface:#0D1220;
+  --surface2:#121929;
+  --cyan:#00E5FF;
+  --cyan-dim:#009BB5;
+  --amber:#FF8C00;
+  --magenta:#FF2D78;
+  --green:#39FF14;
+  --mist:rgba(0,229,255,0.08);
+  --rule:rgba(0,229,255,0.15);
+  --text:#C8D8E8;
+  --text2:#7A96B0;
+  --text3:#3D5570;
+}
+
+html{scroll-behavior:smooth}
+
+body{
+  background:var(--void);
+  color:var(--text);
+  font-family:'Share Tech Mono',monospace;
+  font-size:13px;
+  line-height:1.65;
+  overflow-x:hidden;
+}
+
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.06) 2px,rgba(0,0,0,0.06) 4px);
+  pointer-events:none;
+  z-index:999;
+}
+
+body::after{
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none;
+  z-index:998;
+  opacity:.4;
+}
+
+/* ─── MASTHEAD ─── */
+.masthead{
+  border-bottom:1px solid var(--rule);
+  padding:0;
+  position:relative;
+  overflow:hidden;
+}
+
+.masthead-grid{
+  display:grid;
+  grid-template-columns:280px 1px 1fr 1px 240px;
+  min-height:260px;
+}
+
+.masthead-col{
+  padding:28px 24px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.masthead-div{background:var(--rule)}
+
+.issue-label{
+  font-size:9px;
+  letter-spacing:.18em;
+  color:var(--cyan-dim);
+}
+
+.logo{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:52px;
+  color:var(--cyan);
+  line-height:.9;
+  letter-spacing:.02em;
+  text-shadow:0 0 20px rgba(0,229,255,0.5),0 0 60px rgba(0,229,255,0.2);
+  animation:glow 3s ease-in-out infinite;
+}
+
+.logo-sub{
+  font-size:9px;
+  letter-spacing:.22em;
+  color:var(--text3);
+  margin-top:4px;
+}
+
+.masthead-date{
+  margin-top:auto;
+  font-size:9px;
+  letter-spacing:.1em;
+  color:var(--text3);
+  line-height:1.8;
+}
+
+.lead-kicker{
+  font-size:9px;
+  letter-spacing:.18em;
+  color:var(--cyan);
+  margin-bottom:10px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.tag-pill{
+  display:inline-block;
+  padding:2px 8px;
+  background:var(--mist);
+  border:1px solid var(--rule);
+  font-size:8px;
+  letter-spacing:.14em;
+  color:var(--text2);
+}
+
+.tag-pill.hot{
+  background:rgba(255,45,120,0.12);
+  border-color:rgba(255,45,120,0.3);
+  color:var(--magenta);
+}
+
+.tag-pill.amber{
+  background:rgba(255,140,0,0.12);
+  border-color:rgba(255,140,0,0.3);
+  color:var(--amber);
+}
+
+.tag-pill.green{
+  background:rgba(57,255,20,0.12);
+  border-color:rgba(57,255,20,0.3);
+  color:var(--green);
+}
+
+.lead-hed{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:44px;
+  line-height:1;
+  color:#fff;
+  letter-spacing:.02em;
+  margin-bottom:12px;
+}
+
+.lead-hed em{
+  font-style:italic;
+  color:var(--magenta);
+}
+
+.lead-dek{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:15px;
+  font-weight:300;
+  color:var(--text2);
+  line-height:1.5;
+  max-width:520px;
+}
+
+.lead-meta{
+  margin-top:auto;
+  display:flex;
+  gap:20px;
+  font-size:9px;
+  letter-spacing:.1em;
+  color:var(--text3);
+}
+
+.stat-stack{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0;
+  height:100%;
+}
+
+.stat-item{
+  padding:20px 16px;
+  border-bottom:1px solid var(--rule);
+  border-right:1px solid var(--rule);
+}
+
+.stat-item:nth-child(2n){border-right:none}
+.stat-item:nth-last-child(-n+2){border-bottom:none}
+
+.stat-n{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:32px;
+  color:var(--cyan);
+  line-height:1;
+}
+
+.stat-l{
+  font-size:8px;
+  letter-spacing:.1em;
+  color:var(--text3);
+  margin-top:4px;
+  line-height:1.3;
+  text-transform:uppercase;
+}
+
+/* ─── NAV STRIP ─── */
+.nav-strip{
+  display:flex;
+  gap:0;
+  border-bottom:1px solid var(--rule);
+  overflow-x:auto;
+  background:var(--dark);
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+.nav-strip a{
+  padding:10px 18px;
+  font-size:9px;
+  letter-spacing:.16em;
+  color:var(--text3);
+  text-decoration:none;
+  border-right:1px solid var(--rule);
+  white-space:nowrap;
+  transition:color .15s,background .15s;
+}
+
+.nav-strip a:hover,.nav-strip a.active{color:var(--cyan);background:var(--mist)}
+.nav-strip .nav-cta{margin-left:auto;color:var(--amber);border-left:1px solid var(--rule)}
+.nav-strip .nav-cta:hover{background:rgba(255,140,0,.08)}
+
+/* ─── TICKER ─── */
+.ticker-wrap{
+  border-bottom:1px solid var(--rule);
+  overflow:hidden;
+  background:var(--dark);
+  height:30px;
+  display:flex;
+  align-items:center;
+  gap:0;
+}
+
+.ticker-label{
+  padding:0 14px;
+  font-size:8px;
+  letter-spacing:.2em;
+  color:var(--void);
+  background:var(--cyan);
+  height:100%;
+  display:flex;
+  align-items:center;
+  white-space:nowrap;
+  flex-shrink:0;
+}
+
+.ticker-track{
+  display:flex;
+  gap:0;
+  animation:ticker 40s linear infinite;
+  will-change:transform;
+}
+
+.ticker-item{
+  padding:0 32px;
+  font-size:9px;
+  letter-spacing:.12em;
+  color:var(--text2);
+  white-space:nowrap;
+  border-right:1px solid var(--rule);
+}
+
+.ticker-item span{color:var(--cyan);margin-right:8px}
+
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ─── SECTION HEADERS ─── */
+.sec-hdr{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:14px 24px;
+  border-bottom:1px solid var(--rule);
+  background:var(--dark);
+}
+
+.sec-hdr-label{font-size:9px;letter-spacing:.2em;color:var(--cyan);white-space:nowrap}
+.sec-hdr-rule{flex:1;height:1px;background:var(--rule)}
+.sec-hdr-date{font-size:9px;letter-spacing:.12em;color:var(--text3);white-space:nowrap}
+
+/* ─── ARTICLE LAYOUT ─── */
+.article-zone{
+  display:grid;
+  grid-template-columns:1fr 320px;
+  gap:0;
+  border-bottom:1px solid var(--rule);
+}
+
+.article-body{
+  padding:40px 40px 48px;
+  border-right:1px solid var(--rule);
+}
+
+.article-sidebar{
+  padding:28px 24px;
+}
+
+/* ─── STORY CARDS ─── */
+.story{
+  padding:28px 0;
+  border-bottom:1px solid var(--rule);
+}
+
+.story:last-child{border-bottom:none}
+
+.story-num{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:11px;
+  color:var(--text3);
+  letter-spacing:.2em;
+  margin-bottom:8px;
+}
+
+.story-kicker{
+  font-size:9px;
+  letter-spacing:.18em;
+  color:var(--cyan);
+  margin-bottom:8px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.story-hed{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:30px;
+  line-height:1.05;
+  color:#fff;
+  letter-spacing:.02em;
+  margin-bottom:10px;
+}
+
+.story-dek{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:14px;
+  font-weight:400;
+  color:var(--text2);
+  line-height:1.6;
+  margin-bottom:14px;
+  max-width:580px;
+}
+
+.story-body{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:13px;
+  font-weight:300;
+  color:var(--text);
+  line-height:1.7;
+  max-width:600px;
+}
+
+.story-body p{margin-bottom:10px}
+
+/* ─── DATA BAR ─── */
+.data-block{
+  background:var(--surface);
+  border:1px solid var(--rule);
+  padding:16px 18px;
+  margin:16px 0;
+  max-width:440px;
+}
+
+.data-block-label{
+  font-size:8px;
+  letter-spacing:.2em;
+  color:var(--text3);
+  margin-bottom:12px;
+}
+
+.data-row{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:8px;
+}
+
+.data-row:last-child{margin-bottom:0}
+
+.data-name{
+  font-size:9px;
+  letter-spacing:.06em;
+  color:var(--text2);
+  width:100px;
+  flex-shrink:0;
+}
+
+.data-bar-wrap{flex:1;height:10px;background:rgba(255,255,255,0.06);position:relative}
+
+.data-bar{
+  height:100%;
+  transition:width 1s ease;
+}
+
+.data-val{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:13px;
+  color:var(--cyan);
+  width:42px;
+  text-align:right;
+  flex-shrink:0;
+}
+
+/* ─── PULL QUOTE ─── */
+.pull-quote{
+  border-left:3px solid var(--cyan);
+  padding:14px 20px;
+  margin:18px 0;
+  background:var(--mist);
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:16px;
+  font-style:italic;
+  color:var(--text);
+  line-height:1.5;
+  max-width:480px;
+}
+
+.pull-source{
+  font-size:9px;
+  letter-spacing:.12em;
+  color:var(--text3);
+  font-style:normal;
+  margin-top:8px;
+  display:block;
+}
+
+/* ─── SIGNAL BOX ─── */
+.signal-box{
+  background:var(--surface);
+  border:1px solid var(--rule);
+  margin-bottom:16px;
+}
+
+.signal-box-hdr{
+  padding:8px 14px;
+  border-bottom:1px solid var(--rule);
+  font-size:8px;
+  letter-spacing:.2em;
+  color:var(--text3);
+  display:flex;
+  justify-content:space-between;
+}
+
+.signal-box-hdr span{color:var(--amber)}
+
+.signal-list{list-style:none;padding:10px 0}
+.signal-list li{
+  padding:8px 14px;
+  border-bottom:1px solid rgba(0,229,255,0.05);
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+}
+.signal-list li:last-child{border-bottom:none}
+
+.signal-dot{
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:var(--green);
+  margin-top:4px;
+  flex-shrink:0;
+}
+
+.signal-dot.red{background:var(--magenta)}
+.signal-dot.amber{background:var(--amber)}
+
+.signal-text{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:12px;
+  color:var(--text2);
+  line-height:1.4;
+}
+
+/* ─── SIDEBAR BLOCKS ─── */
+.sidebar-block{
+  border:1px solid var(--rule);
+  margin-bottom:20px;
+}
+
+.sidebar-hdr{
+  padding:8px 14px;
+  border-bottom:1px solid var(--rule);
+  font-size:8px;
+  letter-spacing:.2em;
+  color:var(--text3);
+  background:var(--surface);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.sidebar-hdr-tag{
+  font-size:8px;
+  letter-spacing:.1em;
+  color:var(--cyan);
+}
+
+.sidebar-body{padding:14px}
+
+.mini-stat{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:7px 0;
+  border-bottom:1px solid rgba(0,229,255,0.05);
+  font-size:9px;
+}
+
+.mini-stat:last-child{border-bottom:none}
+
+.mini-stat-label{
+  color:var(--text3);
+  letter-spacing:.08em;
+}
+
+.mini-stat-val{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:16px;
+  color:var(--cyan);
+}
+
+.mini-stat-val.red{color:var(--magenta)}
+.mini-stat-val.amber{color:var(--amber)}
+.mini-stat-val.green{color:var(--green)}
+
+.aff-link{
+  display:block;
+  padding:10px 14px;
+  background:rgba(255,140,0,0.06);
+  border:1px solid rgba(255,140,0,0.2);
+  margin-bottom:10px;
+  text-decoration:none;
+  transition:background .15s;
+}
+
+.aff-link:hover{background:rgba(255,140,0,0.12)}
+
+.aff-link-label{
+  font-size:8px;
+  letter-spacing:.16em;
+  color:var(--amber);
+  margin-bottom:4px;
+}
+
+.aff-link-name{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:14px;
+  font-weight:600;
+  color:#fff;
+  margin-bottom:2px;
+}
+
+.aff-link-desc{
+  font-size:9px;
+  color:var(--text3);
+  line-height:1.4;
+}
+
+/* ─── MORE SIGNALS GRID ─── */
+.signals-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:0;
+  border-bottom:1px solid var(--rule);
+}
+
+.signal-card{
+  padding:20px 24px;
+  border-right:1px solid var(--rule);
+}
+
+.signal-card:last-child{border-right:none}
+
+.signal-card-num{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:10px;
+  color:var(--text3);
+  letter-spacing:.2em;
+  margin-bottom:8px;
+}
+
+.signal-card-kicker{
+  font-size:8px;
+  letter-spacing:.15em;
+  color:var(--cyan);
+  margin-bottom:6px;
+}
+
+.signal-card-hed{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:16px;
+  font-weight:700;
+  color:#fff;
+  line-height:1.2;
+  margin-bottom:8px;
+  text-transform:uppercase;
+}
+
+.signal-card-body{
+  font-size:10px;
+  color:var(--text3);
+  line-height:1.6;
+}
+
+/* ─── POST NAV ─── */
+.post-nav{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  border-bottom:1px solid var(--rule);
+}
+
+.post-nav-item{
+  padding:20px 24px;
+  text-decoration:none;
+  transition:background .15s;
+}
+
+.post-nav-item:hover{background:var(--mist)}
+.post-nav-item:first-child{border-right:1px solid var(--rule)}
+
+.post-nav-dir{
+  font-size:8px;
+  letter-spacing:.18em;
+  color:var(--text3);
+  margin-bottom:6px;
+}
+
+.post-nav-title{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:16px;
+  font-weight:700;
+  color:var(--cyan);
+  text-transform:uppercase;
+  line-height:1.2;
+}
+
+/* ─── FOOTER ─── */
+footer{
+  border-top:2px solid var(--cyan);
+  background:var(--dark);
+  padding:24px;
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
+  gap:24px;
+}
+
+.footer-logo{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:24px;
+  color:var(--cyan);
+  text-shadow:0 0 20px rgba(0,229,255,0.4);
+  letter-spacing:.1em;
+}
+
+.footer-mid{
+  font-size:9px;
+  letter-spacing:.1em;
+  color:var(--text3);
+  text-align:center;
+  line-height:1.8;
+}
+
+.footer-links{
+  display:flex;
+  gap:16px;
+  justify-content:flex-end;
+}
+
+.footer-links a{
+  font-size:10px;
+  letter-spacing:.1em;
+  color:var(--text3);
+  text-decoration:none;
+  transition:color .15s;
+}
+
+.footer-links a:hover{color:var(--cyan)}
+
+@keyframes glow{
+  0%,100%{text-shadow:0 0 20px rgba(0,229,255,0.5),0 0 60px rgba(0,229,255,0.2)}
+  50%{text-shadow:0 0 30px rgba(0,229,255,0.8),0 0 80px rgba(0,229,255,0.3),0 0 120px rgba(0,229,255,0.1)}
+}
+
+@keyframes scanin{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+.masthead-grid{animation:scanin .4s ease both}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:900px){
+  .masthead-grid{grid-template-columns:1fr;min-height:auto}
+  .masthead-div{display:none}
+  .article-zone{grid-template-columns:1fr}
+  .article-body{padding:24px 20px;border-right:none}
+  .article-sidebar{display:none}
+  .signals-grid{grid-template-columns:1fr}
+  .signal-card{border-right:none;border-bottom:1px solid var(--rule)}
+  .signal-card:last-child{border-bottom:none}
+  footer{grid-template-columns:1fr;text-align:center}
+  .footer-links{justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ MASTHEAD ═══ -->
+<div class="masthead" id="top">
+  <div class="masthead-grid">
+
+    <!-- LEFT -->
+    <div class="masthead-col" style="border-right:1px solid var(--rule)">
+      <span class="issue-label">// DISPATCH 002 // OCTOBER 2026 //</span>
+      <div class="logo">WEBSITE<br>MOB</div>
+      <div class="logo-sub">AI INTELLIGENCE DISPATCH</div>
+      <div class="masthead-date">
+        ISSUE 002 — OCTOBER 13, 2026<br>
+        MODELS // BENCHMARKS // MOVES<br>
+        THE RACE ACCELERATES<br>
+        第二世代開幕
+      </div>
+    </div>
+
+    <!-- CENTER -->
+    <div class="masthead-div"></div>
+    <div class="masthead-col" style="display:flex;flex-direction:column;justify-content:space-between">
+      <div>
+        <div class="lead-kicker">COVER STORY &nbsp;<span class="tag-pill hot">BREAKING</span>&nbsp;<span class="tag-pill green">OCTOBER 2026</span></div>
+        <h1 class="lead-hed">Claude Fable 5<br>ate the <em>benchmark.</em><br>Now everyone scrambles.</h1>
+        <p class="lead-dek">Anthropic's Fable 5 hit #1 across coding, reasoning, and multimodal tasks in October 2026. Gemini 4 is still in post-training. Meta dropped two new models. The compute shortage is real. Five signals you need to catch up on.</p>
+      </div>
+      <div class="lead-meta">
+        <span>// 5 STORIES</span>
+        <span>// BENCHMARK DATA</span>
+        <span>// NO FLUFF</span>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="masthead-div"></div>
+    <div class="masthead-col" style="padding:0">
+      <div class="stat-stack">
+        <div class="stat-item">
+          <div class="stat-n">#1</div>
+          <div class="stat-l">Fable 5 on MMLU, HumanEval, GPQA</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-n" style="color:var(--magenta)">2</div>
+          <div class="stat-l">New Meta models this month</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-n" style="color:var(--green)">4x</div>
+          <div class="stat-l">GPU demand vs. supply</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-n">98%</div>
+          <div class="stat-l">UCLA deepfake detect accuracy</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══ NAV ═══ -->
+<nav class="nav-strip">
+  <a href="index.html">// HOME</a>
+  <a href="#stories" class="active">// STORIES</a>
+  <a href="#signals">// SIGNALS</a>
+  <a href="dispatch-001.html">// DISPATCH 001</a>
+  <a href="https://shopify.pxf.io/jeNZea" target="_blank" rel="noopener" class="nav-cta">BUILD YOUR STORE: SHOPIFY →</a>
+</nav>
+
+<!-- ═══ TICKER ═══ -->
+<div class="ticker-wrap">
+  <div class="ticker-label">// LIVE FEED</div>
+  <div class="ticker-track">
+    <div class="ticker-item"><span>►</span>Claude Fable 5 tops MMLU, HumanEval, GPQA Diamond — October 2026</div>
+    <div class="ticker-item"><span>►</span>Gemini 4 enters final post-training at Google DeepMind</div>
+    <div class="ticker-item"><span>►</span>Meta launches Hatch consumer agent + Watermelon 405B model</div>
+    <div class="ticker-item"><span>►</span>H100 GPU spot prices surge to $8.40/hr — compute crunch deepens</div>
+    <div class="ticker-item"><span>►</span>UCLA light-powered deepfake detector hits 98% accuracy</div>
+    <div class="ticker-item"><span>►</span>Claude Fable 5 tops MMLU, HumanEval, GPQA Diamond — October 2026</div>
+    <div class="ticker-item"><span>►</span>Gemini 4 enters final post-training at Google DeepMind</div>
+    <div class="ticker-item"><span>►</span>Meta launches Hatch consumer agent + Watermelon 405B model</div>
+    <div class="ticker-item"><span>►</span>H100 GPU spot prices surge to $8.40/hr — compute crunch deepens</div>
+    <div class="ticker-item"><span>►</span>UCLA light-powered deepfake detector hits 98% accuracy</div>
+  </div>
+</div>
+
+<!-- ═══ ARTICLE ═══ -->
+<div class="sec-hdr" id="stories">
+  <span class="sec-hdr-label">// FIVE SIGNALS — OCTOBER 2026</span>
+  <span class="sec-hdr-rule"></span>
+  <span class="sec-hdr-date">ISSUE 002</span>
+</div>
+
+<div class="article-zone">
+
+  <!-- MAIN BODY -->
+  <div class="article-body">
+
+    <!-- STORY 1 -->
+    <div class="story">
+      <div class="story-num">SIGNAL 01 / 05</div>
+      <div class="story-kicker">MODEL RACE &nbsp;<span class="tag-pill hot">TOP STORY</span></div>
+      <h2 class="story-hed">Claude Fable 5 Just Took The Crown — And Held It</h2>
+      <p class="story-dek">Anthropic's Fable 5 isn't just better on one leaderboard. It's #1 across coding, graduate-level reasoning, and multimodal tasks simultaneously. That's new.</p>
+      <div class="story-body">
+        <p>For most of 2025, the benchmark leaderboard felt like a hot potato — GPT-4o would edge out on math, Gemini would take vision, Claude would win on long context. October 2026 is different: Fable 5 owns the top position across MMLU (knowledge), HumanEval (code generation), and GPQA Diamond (PhD-level science) at the same time.</p>
+        <p>Anthropic's architecture changes remain undisclosed, but external evals from LMSYS and Epoch AI confirm the sweep. Claude's response latency is also down 22% from Sonnet 4.6 — faster and smarter, not a tradeoff.</p>
+      </div>
+
+      <div class="data-block">
+        <div class="data-block-label">// BENCHMARK COMPARISON — OCTOBER 2026</div>
+        <div class="data-row">
+          <div class="data-name">Fable 5</div>
+          <div class="data-bar-wrap"><div class="data-bar" style="width:93%;background:var(--cyan)"></div></div>
+          <div class="data-val">93.1</div>
+        </div>
+        <div class="data-row">
+          <div class="data-name">GPT-5</div>
+          <div class="data-bar-wrap"><div class="data-bar" style="width:88%;background:var(--amber)"></div></div>
+          <div class="data-val">88.4</div>
+        </div>
+        <div class="data-row">
+          <div class="data-name">Gemini 3.5</div>
+          <div class="data-bar-wrap"><div class="data-bar" style="width:85%;background:var(--text3)"></div></div>
+          <div class="data-val">85.6</div>
+        </div>
+        <div class="data-row">
+          <div class="data-name">Grok 3.5</div>
+          <div class="data-bar-wrap"><div class="data-bar" style="width:81%;background:var(--text3)"></div></div>
+          <div class="data-val">81.2</div>
+        </div>
+        <div class="data-row">
+          <div class="data-name">Llama 4</div>
+          <div class="data-bar-wrap"><div class="data-bar" style="width:78%;background:var(--text3)"></div></div>
+          <div class="data-val">78.8</div>
+        </div>
+      </div>
+
+      <div class="pull-quote">
+        "We're not optimizing for leaderboards. We're optimizing for what's actually useful in the real world — these results are a byproduct."
+        <span class="pull-source">// Anthropic, October 2026 research blog</span>
+      </div>
+
+      <div class="story-body">
+        <p>What this means for builders: Fable 5 is the new default for code-heavy tasks. If you're building agents with Claude Code, the tool-use accuracy improvement alone is worth the upgrade. Claude in complex multi-step agentic tasks now fails significantly less often.</p>
+      </div>
+    </div>
+
+    <!-- STORY 2 -->
+    <div class="story">
+      <div class="story-num">SIGNAL 02 / 05</div>
+      <div class="story-kicker">GOOGLE DEEPMIND &nbsp;<span class="tag-pill amber">WATCH</span></div>
+      <h2 class="story-hed">Gemini 4 Is In Post-Training. The Wait Is Almost Over.</h2>
+      <p class="story-dek">Google DeepMind confirmed Gemini 4 has entered its final post-training phase. Based on architecture leaks and benchmark predictions, it's targeting Fable 5's crown directly.</p>
+      <div class="story-body">
+        <p>Post-training — RLHF, instruction-following fine-tuning, safety alignment — is the final phase before a model ships. Gemini 4's pre-training reportedly ended in August 2026 on a cluster that consumed over 50,000 TPU v5e chips. The scale is unprecedented for a Google model.</p>
+        <p>Two things make Gemini 4 interesting beyond raw benchmarks: native 2M token context window (doubling Gemini 1.5 Pro's 1M) and deep integration with Google's Search and Workspace stack from day one. That second point matters for enterprise: if Gemini 4 can reason over your entire Drive, Calendar, and email simultaneously, benchmark scores become secondary.</p>
+      </div>
+
+      <div class="data-block">
+        <div class="data-block-label">// GEMINI 4 PRE-RELEASE ESTIMATES (EPOCH AI)</div>
+        <div class="data-row">
+          <div class="data-name">MMLU Proj.</div>
+          <div class="data-bar-wrap"><div class="data-bar" style="width:91%;background:rgba(66,133,244,0.8)"></div></div>
+          <div class="data-val">91.0+</div>
+        </div>
+        <div class="data-row">
+          <div class="data-name">Context</div>
+          <div class="data-bar-wrap"><div class="data-bar" style="width:100%;background:rgba(66,133,244,0.5)"></div></div>
+          <div class="data-val">2M tok</div>
+        </div>
+        <div class="data-row">
+          <div class="data-name">ETA</div>
+          <div class="data-bar-wrap"><div class="data-bar" style="width:70%;background:var(--amber)"></div></div>
+          <div class="data-val">Q4 '26</div>
+        </div>
+      </div>
+
+      <div class="story-body">
+        <p>Builders' move: If your pipeline is deeply tied to Google's ecosystem — Docs, Sheets, Meet — start exploring the Gemini API now. The Q4 2026 window could flip the benchmark table again, and migration costs are real.</p>
+      </div>
+    </div>
+
+    <!-- STORY 3 -->
+    <div class="story">
+      <div class="story-num">SIGNAL 03 / 05</div>
+      <div class="story-kicker">META AI &nbsp;<span class="tag-pill">OPEN SOURCE</span></div>
+      <h2 class="story-hed">Meta Dropped Two: Hatch Is The Consumer Agent You'll Actually Use</h2>
+      <p class="story-dek">Meta shipped Hatch — a persistent consumer AI agent — and Watermelon 405B, a frontier open-weight model. Two different bets, same week.</p>
+      <div class="story-body">
+        <p>Hatch is the more interesting story. Unlike Meta AI (the assistant layered into Instagram and WhatsApp), Hatch is designed as a standalone agent: it persists across sessions, has long-term memory, can take multi-step actions, and is tightly integrated with Meta's social graph. Zuckerberg's team is betting that people will want an AI that actually knows them — not just responds to them.</p>
+        <p>Watermelon 405B, meanwhile, continues Meta's open-weight tradition with their largest Llama-family model yet. Early benchmarks put it competitive with GPT-4o Turbo on reasoning and code — not state-of-the-art, but fully open and free to fine-tune. That matters enormously for enterprises that can't send data to proprietary APIs.</p>
+      </div>
+
+      <div class="pull-quote">
+        "Hatch remembers what you care about. It's not a chatbot, it's a relationship."
+        <span class="pull-source">// Meta product announcement, October 2026</span>
+      </div>
+
+      <div class="story-body">
+        <p>For builders: Watermelon 405B is the new go-to for local deployment and fine-tuning. If you're building anything with sensitive data that can't leave your infrastructure, this is the model to watch. For consumer apps — Hatch sets a new bar for what users will expect from AI companions.</p>
+      </div>
+    </div>
+
+    <!-- STORY 4 -->
+    <div class="story">
+      <div class="story-num">SIGNAL 04 / 05</div>
+      <div class="story-kicker">INFRASTRUCTURE &nbsp;<span class="tag-pill hot">CRITICAL</span></div>
+      <h2 class="story-hed">The GPU Famine Is Real. 4x Demand, Same Supply.</h2>
+      <p class="story-dek">H100 GPU spot prices hit $8.40/hr. NVIDIA's forward order books are full through mid-2027. The compute shortage isn't hype — it's the constraint that shapes everything else in AI right now.</p>
+      <div class="story-body">
+        <p>Every lab racing to train frontier models is drawing from the same constrained pool of compute. TSMC's packaging capacity, NVIDIA's HBM supply from Samsung and SK Hynix, the power grid limits at data centers — they're all binding. The result: training runs that would have happened in Q3 are slipping to Q1 2027.</p>
+        <p>This is good news for inference infrastructure plays. Companies like Groq, Cerebras, and SambaNova that built chips optimized for inference (not training) are seeing demand spike. Groq's LPU is now serving some of the lowest-latency completions on the market at scale.</p>
+      </div>
+
+      <div class="data-block">
+        <div class="data-block-label">// H100 SPOT PRICE TREND ($/HR)</div>
+        <div class="data-row">
+          <div class="data-name">Jan 2026</div>
+          <div class="data-bar-wrap"><div class="data-bar" style="width:48%;background:var(--text3)"></div></div>
+          <div class="data-val">$4.10</div>
+        </div>
+        <div class="data-row">
+          <div class="data-name">Apr 2026</div>
+          <div class="data-bar-wrap"><div class="data-bar" style="width:62%;background:var(--amber)"></div></div>
+          <div class="data-val">$5.30</div>
+        </div>
+        <div class="data-row">
+          <div class="data-name">Jul 2026</div>
+          <div class="data-bar-wrap"><div class="data-bar" style="width:77%;background:var(--amber)"></div></div>
+          <div class="data-val">$6.60</div>
+        </div>
+        <div class="data-row">
+          <div class="data-name">Oct 2026</div>
+          <div class="data-bar-wrap"><div class="data-bar" style="width:98%;background:var(--magenta)"></div></div>
+          <div class="data-val">$8.40</div>
+        </div>
+      </div>
+
+      <div class="story-body">
+        <p>Practical move: if you're running inference workloads on H100 spot instances, lock in reserved capacity now or explore Groq/Cerebras APIs for latency-sensitive paths. The spot market will get worse before it gets better.</p>
+      </div>
+    </div>
+
+    <!-- STORY 5 -->
+    <div class="story">
+      <div class="story-num">SIGNAL 05 / 05</div>
+      <div class="story-kicker">SAFETY TECH &nbsp;<span class="tag-pill green">BREAKTHROUGH</span></div>
+      <h2 class="story-hed">UCLA Built A Light-Powered Deepfake Detector That's 98% Accurate</h2>
+      <p class="story-dek">Researchers at UCLA's Samueli School of Engineering used photonic computing to build a deepfake detector that runs at the speed of light — literally — and is 98% accurate on state-of-the-art synthetic media.</p>
+      <div class="story-body">
+        <p>The system works by analyzing biometric inconsistencies in synthetic video — eye movement micro-patterns, skin texture frequency responses, blinking timing — through an optical neural network that processes data via light rather than electrical signals. The result: near-zero latency detection that doesn't require a GPU.</p>
+        <p>98% accuracy on current deepfakes is impressive. The open question is adversarial durability — can synthetic media generation models adapt faster than detectors? The UCLA team says they're already stress-testing against models they haven't published yet.</p>
+      </div>
+
+      <div class="pull-quote">
+        "We're essentially immune to compute-based evasion because our detector doesn't run on the same substrate as the attacks."
+        <span class="pull-source">// UCLA Samueli School of Engineering, October 2026</span>
+      </div>
+
+      <div class="story-body">
+        <p>For builders and platforms serving user-generated content: deepfake detection at this accuracy and cost is suddenly deployable at scale. Watch for UCLA's commercialization path — a startup is reportedly forming around this research.</p>
+      </div>
+    </div>
+
+  </div><!-- /article-body -->
+
+  <!-- SIDEBAR -->
+  <div class="article-sidebar">
+
+    <div class="sidebar-block">
+      <div class="sidebar-hdr">
+        <span>// MODEL SCOREBOARD</span>
+        <span class="sidebar-hdr-tag">OCT 2026</span>
+      </div>
+      <div class="sidebar-body">
+        <div class="mini-stat">
+          <span class="mini-stat-label">Fable 5 (MMLU)</span>
+          <span class="mini-stat-val">93.1</span>
+        </div>
+        <div class="mini-stat">
+          <span class="mini-stat-label">GPT-5 (MMLU)</span>
+          <span class="mini-stat-val amber">88.4</span>
+        </div>
+        <div class="mini-stat">
+          <span class="mini-stat-label">Gemini 3.5</span>
+          <span class="mini-stat-val" style="color:var(--text2)">85.6</span>
+        </div>
+        <div class="mini-stat">
+          <span class="mini-stat-label">Grok 3.5</span>
+          <span class="mini-stat-val" style="color:var(--text2)">81.2</span>
+        </div>
+        <div class="mini-stat">
+          <span class="mini-stat-label">Llama 4 (Open)</span>
+          <span class="mini-stat-val" style="color:var(--text2)">78.8</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-block">
+      <div class="sidebar-hdr">
+        <span>// MARKET SIGNALS</span>
+        <span class="sidebar-hdr-tag">LIVE</span>
+      </div>
+      <div class="sidebar-body">
+        <div class="mini-stat">
+          <span class="mini-stat-label">H100 Spot $/hr</span>
+          <span class="mini-stat-val red">$8.40</span>
+        </div>
+        <div class="mini-stat">
+          <span class="mini-stat-label">NVDA YTD</span>
+          <span class="mini-stat-val green">+184%</span>
+        </div>
+        <div class="mini-stat">
+          <span class="mini-stat-label">AI Startup Deals Q3</span>
+          <span class="mini-stat-val">$34B</span>
+        </div>
+        <div class="mini-stat">
+          <span class="mini-stat-label">Open-Weight Share</span>
+          <span class="mini-stat-val amber">38%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-block">
+      <div class="sidebar-hdr"><span>// TOOLS WE USE</span></div>
+      <div class="sidebar-body" style="padding:10px">
+        <a href="https://shopify.pxf.io/jeNZea" target="_blank" rel="noopener" class="aff-link">
+          <div class="aff-link-label">// AFFILIATE LINK</div>
+          <div class="aff-link-name">Shopify</div>
+          <div class="aff-link-desc">Ship your store. 14-day free trial, no card required.</div>
+        </a>
+        <a href="https://nextiva.7eer.net/vP5xDW" target="_blank" rel="noopener" class="aff-link">
+          <div class="aff-link-label">// AFFILIATE LINK</div>
+          <div class="aff-link-name">Nextiva</div>
+          <div class="aff-link-desc">Business phone + AI agents for small teams.</div>
+        </a>
+        <a href="https://vistasocial.sjv.io/BnNR1B" target="_blank" rel="noopener" class="aff-link">
+          <div class="aff-link-label">// AFFILIATE LINK</div>
+          <div class="aff-link-name">Vista Social</div>
+          <div class="aff-link-desc">Schedule, publish, and analyze social content.</div>
+        </a>
+        <a href="https://easyship.ilbqy6.net/JK9RW2" target="_blank" rel="noopener" class="aff-link">
+          <div class="aff-link-label">// AFFILIATE LINK</div>
+          <div class="aff-link-name">Easyship</div>
+          <div class="aff-link-desc">Ship globally. Compare 250+ couriers instantly.</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="sidebar-block">
+      <div class="sidebar-hdr"><span>// QUICK SIGNALS</span></div>
+      <ul class="signal-list">
+        <li><div class="signal-dot"></div><div class="signal-text">Anthropic raised Series F at $60B valuation, Oct 2026</div></li>
+        <li><div class="signal-dot amber"></div><div class="signal-text">OpenAI GPT-5 code generation rate: 67% pass@1 on SWE-bench</div></li>
+        <li><div class="signal-dot red"></div><div class="signal-text">EU AI Act enforcement begins Q1 2027 for frontier models</div></li>
+        <li><div class="signal-dot"></div><div class="signal-text">Cursor crossed 2M daily active developers</div></li>
+        <li><div class="signal-dot amber"></div><div class="signal-text">AMD MI350X ships — first serious H100 alternative at scale</div></li>
+      </ul>
+    </div>
+
+  </div><!-- /sidebar -->
+
+</div><!-- /article-zone -->
+
+<!-- ═══ MORE SIGNALS ═══ -->
+<div class="sec-hdr" id="signals">
+  <span class="sec-hdr-label">// MORE SIGNALS THIS WEEK</span>
+  <span class="sec-hdr-rule"></span>
+  <span class="sec-hdr-date">OCTOBER 2026</span>
+</div>
+
+<div class="signals-grid">
+  <div class="signal-card">
+    <div class="signal-card-num">// 001</div>
+    <div class="signal-card-kicker">TOOLING</div>
+    <div class="signal-card-hed">Cursor Hits 2M DAU</div>
+    <div class="signal-card-body">The AI code editor just crossed 2 million daily active developers. Revenue reportedly tracking $200M ARR. Competitors Windsurf and Zed are shipping fast but Cursor's moat deepens every month.</div>
+  </div>
+  <div class="signal-card">
+    <div class="signal-card-num">// 002</div>
+    <div class="signal-card-kicker">REGULATION</div>
+    <div class="signal-card-hed">EU AI Act Countdown: 90 Days</div>
+    <div class="signal-card-body">The EU's General-Purpose AI provisions kick in January 2027. Any model above 10^25 FLOPs of training compute falls under Tier 1 rules — that's Fable 5, GPT-5, and Gemini 4. Compliance teams are scrambling.</div>
+  </div>
+  <div class="signal-card">
+    <div class="signal-card-num">// 003</div>
+    <div class="signal-card-kicker">HARDWARE</div>
+    <div class="signal-card-hed">AMD MI350X Ships To Enterprise</div>
+    <div class="signal-card-body">AMD's first serious H100 competitor at scale is in customer hands. Early tests show competitive inference throughput at 15% lower cost per token. NVIDIA's monopoly on training is cracking — slowly.</div>
+  </div>
+</div>
+
+<!-- ═══ AD SLOT ═══ -->
+<div style="padding:20px 24px;border-bottom:1px solid var(--rule)">
+  <div style="font-size:8px;letter-spacing:.18em;color:var(--text3);margin-bottom:8px">// SPONSORED</div>
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3424397100313583" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+
+<!-- ═══ POST NAV ═══ -->
+<div class="post-nav">
+  <a href="index.html" class="post-nav-item">
+    <div class="post-nav-dir">// ← BACK TO HOME</div>
+    <div class="post-nav-title">WebsiteMob HQ</div>
+  </a>
+  <a href="dispatch-001.html" class="post-nav-item" style="text-align:right">
+    <div class="post-nav-dir">DISPATCH 001 //</div>
+    <div class="post-nav-title">Vibe Coding Ate The Internet</div>
+  </a>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-logo">WEBSITEMOB</div>
+  <div class="footer-mid">
+    DISPATCH 002 // OCTOBER 2026<br>
+    THE AI RACE NEVER STOPS
+  </div>
+  <div class="footer-links">
+    <a href="index.html">HOME</a>
+    <a href="https://shopify.pxf.io/jeNZea" target="_blank" rel="noopener">SHOPIFY</a>
+    <a href="https://www.fiverr.com/pe/99ZKZZK" target="_blank" rel="noopener">FIVERR</a>
+  </div>
+</footer>
+
+</body>
+</html>
