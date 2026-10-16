@@ -689,6 +689,7 @@ footer{
   .nl-form{flex-direction:column}
   .nl-input{border-right:1px solid var(--rule);border-bottom:none}
 }
+html{scroll-behavior:smooth}.sec-hdr[id],#top{scroll-margin-top:56px}.nav-strip .nav-cta{font-size:8px;padding:4px 8px;opacity:.75;letter-spacing:.08em}
 </style>
 </head>
 <body>
@@ -755,6 +756,9 @@ footer{
 <!-- ═══ NAV ═══ -->
 <nav class="nav-strip">
   <a href="#top" class="active">// HOME</a>
+  <a href="#rankings">// AI RANK</a>
+  <a href="#video-rank">// VIDEO RANK</a>
+  <a href="#music-rank">// MUSIC RANK</a>
   <a href="#blog">// BLOG</a>
   <a href="#tools">// TOOLS DB</a>
   <a href="#business">// BUSINESS</a>
@@ -769,9 +773,9 @@ footer{
   <span class="sec-hdr-date">OCTOBER 2026</span>
 </div>
 
-<div style="padding:10px 24px;border-bottom:1px solid var(--rule);font-size:11px;letter-spacing:.12em"><span style="color:var(--magenta)">// NEW</span> &nbsp;<a href="dispatch-003.html" style="color:var(--cyan)">DISPATCH 003 — Meta opens the vault, sort of. Gemini 4, GPT-6.1, Mistral, Qwen and P(doom)</a> &nbsp;·&nbsp; <a href="dispatch-002.html" style="color:var(--text3)">Previous: Dispatch 002</a></div>
+<div class="promo-box" style="padding:12px 18px;margin:12px 24px;border:1px solid var(--rule);border-left:3px solid var(--magenta);background:var(--surface);font-size:11px;letter-spacing:.12em;line-height:1.9"><span style="color:var(--magenta)">// NEW</span> &nbsp;<a href="dispatch-003.html" style="color:var(--cyan)">DISPATCH 003 — Meta opens the vault, sort of. Gemini 4, GPT-6.1, Mistral, Qwen and P(doom)</a> &nbsp;·&nbsp; <a href="dispatch-002.html" style="color:var(--text3)">Previous: Dispatch 002</a></div>
 
-<div style="padding:10px 24px;border-bottom:1px solid var(--rule);font-size:11px;letter-spacing:.12em;line-height:1.9"><span style="color:var(--magenta)">// NEW GUIDES</span> &nbsp;<a href="cut-the-middle-man-2026.html" style="color:var(--cyan)">Cut the Middle Man: best tools and must-haves</a> &nbsp;·&nbsp; <a href="obsidian-review-2026.html" style="color:var(--cyan)">Obsidian review</a> &nbsp;·&nbsp; <a href="#video-rank" style="color:var(--cyan)">AI video rank</a> &nbsp;·&nbsp; <a href="#music-rank" style="color:var(--cyan)">AI music rank</a></div>
+<div class="promo-box" style="padding:12px 18px;margin:12px 24px;border:1px solid var(--rule);border-left:3px solid var(--magenta);background:var(--surface);font-size:11px;letter-spacing:.12em;line-height:1.9"><span style="color:var(--magenta)">// NEW GUIDES</span> &nbsp;<a href="cut-the-middle-man-2026.html" style="color:var(--cyan)">Cut the Middle Man: best tools and must-haves</a> &nbsp;·&nbsp; <a href="obsidian-review-2026.html" style="color:var(--cyan)">Obsidian review</a> &nbsp;·&nbsp; <a href="#video-rank" style="color:var(--cyan)">AI video rank</a> &nbsp;·&nbsp; <a href="#music-rank" style="color:var(--cyan)">AI music rank</a></div>
 
 <div class="blog-zone">
   <!-- col 1: featured -->
@@ -1326,5 +1330,6 @@ document.querySelectorAll('.sidebar-cat').forEach(link => {
 });
 </script>
 <script>document.addEventListener('DOMContentLoaded',function(){var n=document.querySelectorAll('a.tool-entry,.tool-entry').length,e=document.getElementById('tool-count');if(e&&n)e.textContent=n;});</script>
+<script>document.querySelectorAll('.nav-strip a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});history.replaceState(null,'',a.getAttribute('href'));document.querySelectorAll('.nav-strip a').forEach(function(x){x.classList.remove('active')});a.classList.add('active');}});});</script>
 </body>
 </html>
