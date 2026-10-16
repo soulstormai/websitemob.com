@@ -731,7 +731,7 @@ footer{
     <div class="masthead-col" style="padding:0">
       <div class="stat-stack">
         <div class="stat-item">
-          <div class="stat-n">22</div>
+          <div class="stat-n" id="tool-count">21</div>
           <div class="stat-l">Tools Indexed</div>
         </div>
         <div class="stat-item">
@@ -1289,5 +1289,6 @@ document.querySelectorAll('.sidebar-cat').forEach(link => {
   });
 });
 </script>
+<script>document.addEventListener('DOMContentLoaded',function(){var n=document.querySelectorAll('a.tool-entry,.tool-entry').length,e=document.getElementById('tool-count');if(e&&n)e.textContent=n;});</script>
 </body>
 </html>
