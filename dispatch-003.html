@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Meta opens an 816B model but keeps its best closed. Gemini 4 Argon rolls out, GPT-6.1 Astra reportedly cancelled, Mistral and Qwen promise open models. Dispatch 003.">
+<title>WEBSITEMOB — Dispatch 003 — Open Weights, Closed Frontier</title>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9M2T8LLKGH"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-9M2T8LLKGH');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3424397100313583" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,900;1,300;1,700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --void:#04060D;
+  --dark:#080C18;
+  --surface:#0D1220;
+  --surface2:#121929;
+  --cyan:#00E5FF;
+  --cyan-dim:#009BB5;
+  --amber:#FF8C00;
+  --magenta:#FF2D78;
+  --green:#39FF14;
+  --mist:rgba(0,229,255,0.08);
+  --rule:rgba(0,229,255,0.15);
+  --text:#C8D8E8;
+  --text2:#7A96B0;
+  --text3:#3D5570;
+}
+
+html{scroll-behavior:smooth}
+
+body{
+  background:var(--void);
+  color:var(--text);
+  font-family:'Share Tech Mono',monospace;
+  font-size:13px;
+  line-height:1.65;
+  overflow-x:hidden;
+}
+
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.06) 2px,rgba(0,0,0,0.06) 4px);
+  pointer-events:none;
+  z-index:999;
+}
+
+body::after{
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none;
+  z-index:998;
+  opacity:.4;
+}
+
+/* ─── MASTHEAD ─── */
+.masthead{
+  border-bottom:1px solid var(--rule);
+  padding:0;
+  position:relative;
+  overflow:hidden;
+}
+
+.masthead-grid{
+  display:grid;
+  grid-template-columns:280px 1px 1fr 1px 240px;
+  min-height:260px;
+}
+
+.masthead-col{
+  padding:28px 24px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.masthead-div{background:var(--rule)}
+
+.issue-label{
+  font-size:9px;
+  letter-spacing:.18em;
+  color:var(--cyan-dim);
+}
+
+.logo{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:52px;
+  color:var(--cyan);
+  line-height:.9;
+  letter-spacing:.02em;
+  text-shadow:0 0 20px rgba(0,229,255,0.5),0 0 60px rgba(0,229,255,0.2);
+  animation:glow 3s ease-in-out infinite;
+}
+
+.logo-sub{
+  font-size:9px;
+  letter-spacing:.22em;
+  color:var(--text3);
+  margin-top:4px;
+}
+
+.masthead-date{
+  margin-top:auto;
+  font-size:9px;
+  letter-spacing:.1em;
+  color:var(--text3);
+  line-height:1.8;
+}
+
+.lead-kicker{
+  font-size:9px;
+  letter-spacing:.18em;
+  color:var(--cyan);
+  margin-bottom:10px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.tag-pill{
+  display:inline-block;
+  padding:2px 8px;
+  background:var(--mist);
+  border:1px solid var(--rule);
+  font-size:8px;
+  letter-spacing:.14em;
+  color:var(--text2);
+}
+
+.tag-pill.hot{
+  background:rgba(255,45,120,0.12);
+  border-color:rgba(255,45,120,0.3);
+  color:var(--magenta);
+}
+
+.tag-pill.amber{
+  background:rgba(255,140,0,0.12);
+  border-color:rgba(255,140,0,0.3);
+  color:var(--amber);
+}
+
+.tag-pill.green{
+  background:rgba(57,255,20,0.12);
+  border-color:rgba(57,255,20,0.3);
+  color:var(--green);
+}
+
+.lead-hed{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:44px;
+  line-height:1;
+  color:#fff;
+  letter-spacing:.02em;
+  margin-bottom:12px;
+}
+
+.lead-hed em{
+  font-style:italic;
+  color:var(--magenta);
+}
+
+.lead-dek{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:15px;
+  font-weight:300;
+  color:var(--text2);
+  line-height:1.5;
+  max-width:520px;
+}
+
+.lead-meta{
+  margin-top:auto;
+  display:flex;
+  gap:20px;
+  font-size:9px;
+  letter-spacing:.1em;
+  color:var(--text3);
+}
+
+.stat-stack{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0;
+  height:100%;
+}
+
+.stat-item{
+  padding:20px 16px;
+  border-bottom:1px solid var(--rule);
+  border-right:1px solid var(--rule);
+}
+
+.stat-item:nth-child(2n){border-right:none}
+.stat-item:nth-last-child(-n+2){border-bottom:none}
+
+.stat-n{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:32px;
+  color:var(--cyan);
+  line-height:1;
+}
+
+.stat-l{
+  font-size:8px;
+  letter-spacing:.1em;
+  color:var(--text3);
+  margin-top:4px;
+  line-height:1.3;
+  text-transform:uppercase;
+}
+
+/* ─── NAV STRIP ─── */
+.nav-strip{
+  display:flex;
+  gap:0;
+  border-bottom:1px solid var(--rule);
+  overflow-x:auto;
+  background:var(--dark);
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+.nav-strip a{
+  padding:10px 18px;
+  font-size:9px;
+  letter-spacing:.16em;
+  color:var(--text3);
+  text-decoration:none;
+  border-right:1px solid var(--rule);
+  white-space:nowrap;
+  transition:color .15s,background .15s;
+}
+
+.nav-strip a:hover,.nav-strip a.active{color:var(--cyan);background:var(--mist)}
+.nav-strip .nav-cta{margin-left:auto;color:var(--amber);border-left:1px solid var(--rule)}
+.nav-strip .nav-cta:hover{background:rgba(255,140,0,.08)}
+
+/* ─── TICKER ─── */
+.ticker-wrap{
+  border-bottom:1px solid var(--rule);
+  overflow:hidden;
+  background:var(--dark);
+  height:30px;
+  display:flex;
+  align-items:center;
+  gap:0;
+}
+
+.ticker-label{
+  padding:0 14px;
+  font-size:8px;
+  letter-spacing:.2em;
+  color:var(--void);
+  background:var(--cyan);
+  height:100%;
+  display:flex;
+  align-items:center;
+  white-space:nowrap;
+  flex-shrink:0;
+}
+
+.ticker-track{
+  display:flex;
+  gap:0;
+  animation:ticker 40s linear infinite;
+  will-change:transform;
+}
+
+.ticker-item{
+  padding:0 32px;
+  font-size:9px;
+  letter-spacing:.12em;
+  color:var(--text2);
+  white-space:nowrap;
+  border-right:1px solid var(--rule);
+}
+
+.ticker-item span{color:var(--cyan);margin-right:8px}
+
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ─── SECTION HEADERS ─── */
+.sec-hdr{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:14px 24px;
+  border-bottom:1px solid var(--rule);
+  background:var(--dark);
+}
+
+.sec-hdr-label{font-size:9px;letter-spacing:.2em;color:var(--cyan);white-space:nowrap}
+.sec-hdr-rule{flex:1;height:1px;background:var(--rule)}
+.sec-hdr-date{font-size:9px;letter-spacing:.12em;color:var(--text3);white-space:nowrap}
+
+/* ─── ARTICLE LAYOUT ─── */
+.article-zone{
+  display:grid;
+  grid-template-columns:1fr 320px;
+  gap:0;
+  border-bottom:1px solid var(--rule);
+}
+
+.article-body{
+  padding:40px 40px 48px;
+  border-right:1px solid var(--rule);
+}
+
+.article-sidebar{
+  padding:28px 24px;
+}
+
+/* ─── STORY CARDS ─── */
+.story{
+  padding:28px 0;
+  border-bottom:1px solid var(--rule);
+}
+
+.story:last-child{border-bottom:none}
+
+.story-num{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:11px;
+  color:var(--text3);
+  letter-spacing:.2em;
+  margin-bottom:8px;
+}
+
+.story-kicker{
+  font-size:9px;
+  letter-spacing:.18em;
+  color:var(--cyan);
+  margin-bottom:8px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.story-hed{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:30px;
+  line-height:1.05;
+  color:#fff;
+  letter-spacing:.02em;
+  margin-bottom:10px;
+}
+
+.story-dek{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:14px;
+  font-weight:400;
+  color:var(--text2);
+  line-height:1.6;
+  margin-bottom:14px;
+  max-width:580px;
+}
+
+.story-body{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:13px;
+  font-weight:300;
+  color:var(--text);
+  line-height:1.7;
+  max-width:600px;
+}
+
+.story-body p{margin-bottom:10px}
+
+/* ─── DATA BAR ─── */
+.data-block{
+  background:var(--surface);
+  border:1px solid var(--rule);
+  padding:16px 18px;
+  margin:16px 0;
+  max-width:440px;
+}
+
+.data-block-label{
+  font-size:8px;
+  letter-spacing:.2em;
+  color:var(--text3);
+  margin-bottom:12px;
+}
+
+.data-row{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:8px;
+}
+
+.data-row:last-child{margin-bottom:0}
+
+.data-name{
+  font-size:9px;
+  letter-spacing:.06em;
+  color:var(--text2);
+  width:100px;
+  flex-shrink:0;
+}
+
+.data-bar-wrap{flex:1;height:10px;background:rgba(255,255,255,0.06);position:relative}
+
+.data-bar{
+  height:100%;
+  transition:width 1s ease;
+}
+
+.data-val{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:13px;
+  color:var(--cyan);
+  width:42px;
+  text-align:right;
+  flex-shrink:0;
+}
+
+/* ─── PULL QUOTE ─── */
+.pull-quote{
+  border-left:3px solid var(--cyan);
+  padding:14px 20px;
+  margin:18px 0;
+  background:var(--mist);
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:16px;
+  font-style:italic;
+  color:var(--text);
+  line-height:1.5;
+  max-width:480px;
+}
+
+.pull-source{
+  font-size:9px;
+  letter-spacing:.12em;
+  color:var(--text3);
+  font-style:normal;
+  margin-top:8px;
+  display:block;
+}
+
+/* ─── SIGNAL BOX ─── */
+.signal-box{
+  background:var(--surface);
+  border:1px solid var(--rule);
+  margin-bottom:16px;
+}
+
+.signal-box-hdr{
+  padding:8px 14px;
+  border-bottom:1px solid var(--rule);
+  font-size:8px;
+  letter-spacing:.2em;
+  color:var(--text3);
+  display:flex;
+  justify-content:space-between;
+}
+
+.signal-box-hdr span{color:var(--amber)}
+
+.signal-list{list-style:none;padding:10px 0}
+.signal-list li{
+  padding:8px 14px;
+  border-bottom:1px solid rgba(0,229,255,0.05);
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+}
+.signal-list li:last-child{border-bottom:none}
+
+.signal-dot{
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:var(--green);
+  margin-top:4px;
+  flex-shrink:0;
+}
+
+.signal-dot.red{background:var(--magenta)}
+.signal-dot.amber{background:var(--amber)}
+
+.signal-text{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:12px;
+  color:var(--text2);
+  line-height:1.4;
+}
+
+/* ─── SIDEBAR BLOCKS ─── */
+.sidebar-block{
+  border:1px solid var(--rule);
+  margin-bottom:20px;
+}
+
+.sidebar-hdr{
+  padding:8px 14px;
+  border-bottom:1px solid var(--rule);
+  font-size:8px;
+  letter-spacing:.2em;
+  color:var(--text3);
+  background:var(--surface);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.sidebar-hdr-tag{
+  font-size:8px;
+  letter-spacing:.1em;
+  color:var(--cyan);
+}
+
+.sidebar-body{padding:14px}
+
+.mini-stat{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:7px 0;
+  border-bottom:1px solid rgba(0,229,255,0.05);
+  font-size:9px;
+}
+
+.mini-stat:last-child{border-bottom:none}
+
+.mini-stat-label{
+  color:var(--text3);
+  letter-spacing:.08em;
+}
+
+.mini-stat-val{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:16px;
+  color:var(--cyan);
+}
+
+.mini-stat-val.red{color:var(--magenta)}
+.mini-stat-val.amber{color:var(--amber)}
+.mini-stat-val.green{color:var(--green)}
+
+.aff-link{
+  display:block;
+  padding:10px 14px;
+  background:rgba(255,140,0,0.06);
+  border:1px solid rgba(255,140,0,0.2);
+  margin-bottom:10px;
+  text-decoration:none;
+  transition:background .15s;
+}
+
+.aff-link:hover{background:rgba(255,140,0,0.12)}
+
+.aff-link-label{
+  font-size:8px;
+  letter-spacing:.16em;
+  color:var(--amber);
+  margin-bottom:4px;
+}
+
+.aff-link-name{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:14px;
+  font-weight:600;
+  color:#fff;
+  margin-bottom:2px;
+}
+
+.aff-link-desc{
+  font-size:9px;
+  color:var(--text3);
+  line-height:1.4;
+}
+
+/* ─── MORE SIGNALS GRID ─── */
+.signals-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:0;
+  border-bottom:1px solid var(--rule);
+}
+
+.signal-card{
+  padding:20px 24px;
+  border-right:1px solid var(--rule);
+}
+
+.signal-card:last-child{border-right:none}
+
+.signal-card-num{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:10px;
+  color:var(--text3);
+  letter-spacing:.2em;
+  margin-bottom:8px;
+}
+
+.signal-card-kicker{
+  font-size:8px;
+  letter-spacing:.15em;
+  color:var(--cyan);
+  margin-bottom:6px;
+}
+
+.signal-card-hed{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:16px;
+  font-weight:700;
+  color:#fff;
+  line-height:1.2;
+  margin-bottom:8px;
+  text-transform:uppercase;
+}
+
+.signal-card-body{
+  font-size:10px;
+  color:var(--text3);
+  line-height:1.6;
+}
+
+/* ─── POST NAV ─── */
+.post-nav{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  border-bottom:1px solid var(--rule);
+}
+
+.post-nav-item{
+  padding:20px 24px;
+  text-decoration:none;
+  transition:background .15s;
+}
+
+.post-nav-item:hover{background:var(--mist)}
+.post-nav-item:first-child{border-right:1px solid var(--rule)}
+
+.post-nav-dir{
+  font-size:8px;
+  letter-spacing:.18em;
+  color:var(--text3);
+  margin-bottom:6px;
+}
+
+.post-nav-title{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:16px;
+  font-weight:700;
+  color:var(--cyan);
+  text-transform:uppercase;
+  line-height:1.2;
+}
+
+/* ─── FOOTER ─── */
+footer{
+  border-top:2px solid var(--cyan);
+  background:var(--dark);
+  padding:24px;
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
+  gap:24px;
+}
+
+.footer-logo{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:24px;
+  color:var(--cyan);
+  text-shadow:0 0 20px rgba(0,229,255,0.4);
+  letter-spacing:.1em;
+}
+
+.footer-mid{
+  font-size:9px;
+  letter-spacing:.1em;
+  color:var(--text3);
+  text-align:center;
+  line-height:1.8;
+}
+
+.footer-links{
+  display:flex;
+  gap:16px;
+  justify-content:flex-end;
+}
+
+.footer-links a{
+  font-size:10px;
+  letter-spacing:.1em;
+  color:var(--text3);
+  text-decoration:none;
+  transition:color .15s;
+}
+
+.footer-links a:hover{color:var(--cyan)}
+
+@keyframes glow{
+  0%,100%{text-shadow:0 0 20px rgba(0,229,255,0.5),0 0 60px rgba(0,229,255,0.2)}
+  50%{text-shadow:0 0 30px rgba(0,229,255,0.8),0 0 80px rgba(0,229,255,0.3),0 0 120px rgba(0,229,255,0.1)}
+}
+
+@keyframes scanin{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+.masthead-grid{animation:scanin .4s ease both}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:900px){
+  .masthead-grid{grid-template-columns:1fr;min-height:auto}
+  .masthead-div{display:none}
+  .article-zone{grid-template-columns:1fr}
+  .article-body{padding:24px 20px;border-right:none}
+  .article-sidebar{display:none}
+  .signals-grid{grid-template-columns:1fr}
+  .signal-card{border-right:none;border-bottom:1px solid var(--rule)}
+  .signal-card:last-child{border-bottom:none}
+  footer{grid-template-columns:1fr;text-align:center}
+  .footer-links{justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ MASTHEAD ═══ -->
+<div class="masthead" id="top">
+  <div class="masthead-grid">
+
+    <!-- LEFT -->
+    <div class="masthead-col" style="border-right:1px solid var(--rule)">
+      <span class="issue-label">// DISPATCH 003 // OCTOBER 2026 //</span>
+      <div class="logo">WEBSITE<br>MOB</div>
+      <div class="logo-sub">AI INTELLIGENCE DISPATCH</div>
+      <div class="masthead-date">
+        ISSUE 003 — OCTOBER 16, 2026<br>
+        MODELS // BENCHMARKS // MOVES<br>
+        THE VAULT OPENS<br>
+        第三号
+      </div>
+    </div>
+
+    <!-- CENTER -->
+    <div class="masthead-div"></div>
+    <div class="masthead-col" style="display:flex;flex-direction:column;justify-content:space-between">
+      <div>
+        <div class="lead-kicker">COVER STORY &nbsp;<span class="tag-pill hot">BREAKING</span>&nbsp;<span class="tag-pill green">OCTOBER 2026</span></div>
+        <h1 class="lead-hed">Meta opens<br>the vault.<br><em>Sort of.</em></h1>
+        <p class="lead-dek">Meta released an 816B open-weight model but kept its best ones closed. Gemini 4 Argon is rolling out, OpenAI's GPT-6.1 Astra is reportedly cancelled, and Mistral and Qwen promise big open models. Five signals, plus what AI leaders say about P(doom).</p>
+      </div>
+      <div class="lead-meta">
+        <span>// 5 STORIES</span>
+        <span>// BENCHMARK DATA</span>
+        <span>// NO FLUFF</span>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="masthead-div"></div>
+    <div class="masthead-col" style="padding:0">
+      <div class="stat-stack">
+        <div class="stat-item">
+          <div class="stat-n">816B</div>
+        <div class="stat-l">Muse Spark Open parameters (open weights)</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-n" style="color:var(--magenta)">$2/$10</div>
+        <div class="stat-l">Per M tokens: Gemini 4 Argon intro, GPT-6.1 Sol</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-n" style="color:var(--green)">1T</div>
+        <div class="stat-l">Mistral Large 4 total params, 49B active</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-n">1M</div>
+        <div class="stat-l">Context window, Muse Spark Open</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══ NAV ═══ -->
+<nav class="nav-strip">
+  <a href="index.html">// HOME</a>
+  <a href="#stories" class="active">// STORIES</a>
+  <a href="#signals">// SIGNALS</a>
+  <a href="dispatch-001.html">// DISPATCH 001</a>
+  <a href="https://shopify.pxf.io/jeNZea" target="_blank" rel="noopener" class="nav-cta">BUILD YOUR STORE: SHOPIFY →</a>
+</nav>
+
+<!-- ═══ TICKER ═══ -->
+<div class="ticker-wrap">
+  <div class="ticker-label">// LIVE FEED</div>
+  <div class="ticker-track">
+    <div class="ticker-item"><span>►</span>Meta releases Muse Spark Open, 816B open-weight model</div>
+    <div class="ticker-item"><span>►</span>Gemini 4 Argon rolling out; intro $2/$10 doubles Dec 1</div>
+    <div class="ticker-item"><span>►</span>GPT-6.1 Sol ships; Astra reportedly cancelled (unconfirmed)</div>
+    <div class="ticker-item"><span>►</span>Mistral Large 4: 1T params, weights promised by end of October</div>
+    <div class="ticker-item"><span>►</span>Qwen 4 announced, still training</div>
+    <div class="ticker-item"><span>►</span>Cloudflare Clef open-weight models, Apache 2.0</div>
+    <div class="ticker-item"><span>►</span>Meta releases Muse Spark Open, 816B open-weight model</div>
+    <div class="ticker-item"><span>►</span>Gemini 4 Argon rolling out; intro $2/$10 doubles Dec 1</div>
+    <div class="ticker-item"><span>►</span>GPT-6.1 Sol ships; Astra reportedly cancelled (unconfirmed)</div>
+    <div class="ticker-item"><span>►</span>Mistral Large 4: 1T params, weights promised by end of October</div>
+    <div class="ticker-item"><span>►</span>Qwen 4 announced, still training</div>
+    <div class="ticker-item"><span>►</span>Cloudflare Clef open-weight models, Apache 2.0</div>
+  </div>
+</div>
+
+<!-- ═══ ARTICLE ═══ -->
+<div class="sec-hdr" id="stories">
+  <span class="sec-hdr-label">// FIVE SIGNALS — OCTOBER 2026</span>
+  <span class="sec-hdr-rule"></span>
+  <span class="sec-hdr-date">ISSUE 003</span>
+</div>
+
+<div class="article-zone">
+
+  <!-- MAIN BODY -->
+  <div class="article-body">
+
+    <!-- STORY 1 -->
+    <div class="story">
+      <div class="story-num">SIGNAL 01 / 05</div>
+      <div class="story-kicker">OPEN WEIGHTS &nbsp;<span class="tag-pill hot">TOP STORY</span></div>
+      <h2 class="story-hed">Meta Opens The Vault. Sort Of.</h2>
+      <p class="story-dek">On Oct 15 Meta released Muse Spark Open, an 816B-parameter open-weight model with a 1M-token context window. Its best models stay closed.</p>
+      <div class="story-body">
+        <p>Meta says Muse Spark Open is the most capable open-weight model in the US. That is Meta's own evaluation claim, and no scores were published in the coverage we read. It is built to run locally on a Mac Studio with an M5 Ultra, but Engadget reports it needs at least 1 TB of RAM, so this is not a laptop model.</p>
+        <p>The pattern matters more than the model: Muse Wonder Full, Meta's top model, is limited to Muse Code subscribers, and Muse Wonder costs $4/$20 per million tokens through Meta's API. Open weights below, closed frontier above. License terms were not stated in the reports.</p>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-num">SIGNAL 02 / 05</div>
+      <div class="story-kicker">GOOGLE &nbsp;<span class="tag-pill green">ROLLING OUT</span></div>
+      <h2 class="story-hed">Gemini 4 Argon: Announced Sep 30, Opening Up Now</h2>
+      <p class="story-dek">Argon launched limited to vetted cyber defenders. One tracker says general availability began Oct 13, with intro pricing that doubles on Dec 1.</p>
+      <div class="story-body">
+        <p>Trackers put Argon at 52.6 on the Artificial Analysis Intelligence Index and report an intro price of $2/$10 per million tokens, rising to $4/$20 on December 1, 2026. It can return up to 1M output tokens in a single response.</p>
+        <p>Caution: the same tracker contradicts itself on whether Argon has a general availability date. Check Google's own pricing page before building on those numbers.</p>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-num">SIGNAL 03 / 05</div>
+      <div class="story-kicker">OPENAI &nbsp;<span class="tag-pill hot">UNCONFIRMED</span></div>
+      <h2 class="story-hed">GPT-6.1 Sol Ships. GPT-6.1 Astra Reportedly Doesn't.</h2>
+      <p class="story-dek">At DevDay on Sep 29, OpenAI launched GPT-6.1 Sol at $2/$10 per million tokens. A report says the bigger Astra release was cancelled after safety tests.</p>
+      <div class="story-body">
+        <p>Sol scores 51.8 on the Intelligence Index at about $0.72 per task. DevDay also brought an Ultrafast mode (up to 300 tokens/sec at 6x the price) and a $500/month Pro 500 tier.</p>
+        <p>The Astra cancellation is attributed to the Wall Street Journal, but we only found it secondhand through a tracker. Treat it as unconfirmed until OpenAI says something. GPT-6 Astra, released Sep 3, is still OpenAI's top shipped model.</p>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-num">SIGNAL 04 / 05</div>
+      <div class="story-kicker">MISTRAL + QWEN &nbsp;<span class="tag-pill green">COMING SOON</span></div>
+      <h2 class="story-hed">Two Big Open Models Are Promised. Neither Has Weights Yet.</h2>
+      <p class="story-dek">Mistral Large 4 is in preview with a trillion parameters. Alibaba announced Qwen 4 but is still training it.</p>
+      <div class="story-body">
+        <p>Mistral Large 4 ("Le Chonk"), previewed Oct 6, has 1T total and 49B active parameters and is natively multimodal. It is only available through a guardrailed API preview, with weights promised by the end of October. No price or license has been published.</p>
+        <p>Qwen 4 was announced Sep 22 in four tiers: Max, Flash, Plus, and an open-weight 27B. As of early October there was no date, price, or weights.</p>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-num">SIGNAL 05 / 05</div>
+      <div class="story-kicker">SAFETY &nbsp;<span class="tag-pill hot">OPINION, NOT DATA</span></div>
+      <h2 class="story-hed">P(doom): What AI Lab Leaders Say Out Loud</h2>
+      <p class="story-dek">P(doom) is a person's guess at the chance AI causes a catastrophe. It is an opinion, not a benchmark, and it is not measured per model.</p>
+      <div class="story-body">
+        <p>Figures publicly attributed to people (per Wikipedia's P(doom) page, which cites press interviews; dates vary): Dario Amodei, Anthropic, 10-25%. Elon Musk, xAI, roughly 10-30%. Geoffrey Hinton, 10-20%. Yoshua Bengio, 20%. Demis Hassabis, Google DeepMind, has said only that it is above zero.</p>
+        <p>These numbers are not comparable. People differ on the time frame, whether AGI is assumed, and what counts as doom. We show them because readers ask, not because they rank the models.</p>
+      </div>
+    </div>
+
+    
+  </div><!-- /article-body -->
+
+  <!-- SIDEBAR -->
+  <div class="article-sidebar">
+
+    <div class="sidebar-block">
+      <div class="sidebar-hdr"><span>// MODEL SCOREBOARD</span><span class="sidebar-hdr-tag">OCT 16</span></div>
+      <div class="sidebar-body">
+        <div class="mini-stat"><span class="mini-stat-label">Claude Opus 5.5</span><span class="mini-stat-val">58</span></div>
+        <div class="mini-stat"><span class="mini-stat-label">Meta Muse Wonder Full</span><span class="mini-stat-val amber">56</span></div>
+        <div class="mini-stat"><span class="mini-stat-label">GPT-6 Astra</span><span class="mini-stat-val" style="color:var(--text2)">53</span></div>
+        <div class="mini-stat"><span class="mini-stat-label">Gemini 4 Argon</span><span class="mini-stat-val" style="color:var(--text2)">53</span></div>
+        <div class="mini-stat"><span class="mini-stat-label">Grok 4.7</span><span class="mini-stat-val" style="color:var(--text2)">46</span></div>
+      </div>
+    </div>
+
+    <div class="sidebar-block">
+      <div class="sidebar-hdr"><span>// P(DOOM) — STATED BY</span><span class="sidebar-hdr-tag">OPINION</span></div>
+      <div class="sidebar-body">
+        <div class="mini-stat"><span class="mini-stat-label">Dario Amodei</span><span class="mini-stat-val">10-25%</span></div>
+        <div class="mini-stat"><span class="mini-stat-label">Elon Musk</span><span class="mini-stat-val amber">~10-30%</span></div>
+        <div class="mini-stat"><span class="mini-stat-label">Geoffrey Hinton</span><span class="mini-stat-val" style="color:var(--text2)">10-20%</span></div>
+        <div class="mini-stat"><span class="mini-stat-label">Yoshua Bengio</span><span class="mini-stat-val" style="color:var(--text2)">20%</span></div>
+      </div>
+    </div>
+
+  </div><!-- /sidebar -->
+
+</div><!-- /article-zone -->
+
+<!-- ═══ MORE SIGNALS ═══ -->
+<div class="sec-hdr" id="signals">
+  <span class="sec-hdr-label">// MORE SIGNALS THIS WEEK</span>
+  <span class="sec-hdr-rule"></span>
+  <span class="sec-hdr-date">OCTOBER 2026</span>
+</div>
+
+<div class="signals-grid">
+  <div class="signal-card">
+    <div class="signal-card-num">// 001</div>
+    <div class="signal-card-kicker">OPEN WEIGHTS</div>
+    <div class="signal-card-hed">Cloudflare Ships Clef 27B and 9B</div>
+    <div class="signal-card-body">Apache 2.0 decision models, priced at $0.24 and $0.09 per million input tokens on Workers AI, with a 65,536-token context (Oct 1).</div>
+  </div>
+  <div class="signal-card">
+    <div class="signal-card-num">// 002</div>
+    <div class="signal-card-kicker">SMALL MODELS</div>
+    <div class="signal-card-hed">Amazon Strands Decider 2B</div>
+    <div class="signal-card-body">A 2B decision model that runs free on a CPU or GPU. Weights, training data, and scripts are all published under Apache 2.0 (Oct 1).</div>
+  </div>
+  <div class="signal-card">
+    <div class="signal-card-num">// 003</div>
+    <div class="signal-card-kicker">VOICE</div>
+    <div class="signal-card-hed">Microsoft MAI-Voice-2.1</div>
+    <div class="signal-card-body">New voice models at $22 and $15 per million characters, plus streaming transcription at an introductory $0.54 per audio hour. API only (Oct 1).</div>
+  </div>
+</div>
+
+<!-- ═══ AD SLOT ═══ -->
+<div style="padding:20px 24px;border-bottom:1px solid var(--rule)">
+  <div style="font-size:8px;letter-spacing:.18em;color:var(--text3);margin-bottom:8px">// SPONSORED</div>
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3424397100313583" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+
+<!-- ═══ POST NAV ═══ -->
+<div class="post-nav">
+  <a href="index.html" class="post-nav-item">
+    <div class="post-nav-dir">// ← BACK TO HOME</div>
+    <div class="post-nav-title">WebsiteMob HQ</div>
+  </a>
+  <a href="dispatch-002.html" class="post-nav-item" style="text-align:right">
+    <div class="post-nav-dir">DISPATCH 002 //</div>
+    <div class="post-nav-title">Vibe Coding Ate The Internet</div>
+  </a>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-logo">WEBSITEMOB</div>
+  <div class="footer-mid">
+    DISPATCH 002 // OCTOBER 2026<br>
+    THE AI RACE NEVER STOPS
+  </div>
+  <div class="footer-links">
+    <a href="index.html">HOME</a>
+    <a href="https://shopify.pxf.io/jeNZea" target="_blank" rel="noopener">SHOPIFY</a>
+    <a href="https://www.fiverr.com/pe/99ZKZZK" target="_blank" rel="noopener">FIVERR</a>
+  </div>
+</footer>
+
+</body>
+</html>
