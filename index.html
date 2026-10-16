@@ -839,6 +839,45 @@ footer{
   <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
 </div>
 
+<!-- ═══ AI RANKINGS ═══ -->
+<style>
+.rk-wrap{background:var(--dark);border-bottom:1px solid var(--rule);padding:0 0 8px}
+.rk-head,.rk-row{display:grid;grid-template-columns:48px 190px 64px 64px 1fr;gap:0;align-items:start;border-bottom:1px solid var(--rule)}
+.rk-head{font-size:9px;letter-spacing:.2em;color:var(--text3);text-transform:uppercase;padding:10px 16px}
+.rk-row{padding:14px 16px;transition:background .15s}
+.rk-row:hover{background:var(--mist)}
+.rk-n{font-family:'Bebas Neue',sans-serif;font-size:26px;line-height:1;color:var(--cyan)}
+.rk-top .rk-n{color:var(--magenta)}
+.rk-ai b{display:block;font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:.08em;color:var(--text);font-weight:400}
+.rk-ai span{font-size:11px;color:var(--cyan)}
+.rk-score{font-family:'Bebas Neue',sans-serif;font-size:26px;line-height:1;color:var(--green)}
+.rk-ctx{font-size:11px;color:var(--text2)}
+.rk-cap{font-size:12px;color:var(--text2);line-height:1.6}
+.rk-note{font-size:10px;letter-spacing:.06em;color:var(--text3);padding:14px 16px 6px;line-height:1.7}
+.rk-note a{color:var(--cyan-dim)}
+@media(max-width:760px){.rk-head{display:none}.rk-row{grid-template-columns:40px 1fr 56px;row-gap:6px}.rk-ctx{display:none}.rk-cap{grid-column:1/-1}}
+</style>
+<div class="sec-hdr" id="rankings">
+  <span class="sec-hdr-label magenta">// AI RANKINGS</span>
+  <span class="sec-hdr-rule"></span>
+  <span class="sec-hdr-date">AS OF OCT 16, 2026</span>
+</div>
+<div class="rk-wrap">
+<div class="rk-head"><div>Rank</div><div>AI / Latest Model</div><div>Score</div><div>Context</div><div>Capabilities</div></div>
+<div class="rk-row rk-top"><div class="rk-n">1</div><div class="rk-ai"><b>Anthropic</b><span>Claude Opus 5.5</span></div><div class="rk-score">58</div><div class="rk-ctx">1M</div><div class="rk-cap">Highest score on the index. Anthropic says it performs near Claude Fable 5.1 on most work at about 40% lower cost than Opus 5. Also new: Sonnet 5.5 (56, faster and cheaper) and Haiku 5.5 (Oct 7, built for high-volume, low-cost work).</div></div>
+<div class="rk-row"><div class="rk-n">2</div><div class="rk-ai"><b>Meta</b><span>Muse Wonder Full</span></div><div class="rk-score">56</div><div class="rk-ctx">1M</div><div class="rk-cap">Launched Oct 12 for agentic tasks, with Active Memory and Active Focus (Meta's own claims). Muse Wonder Full is limited to Muse Code subscribers; standard Muse Wonder is in the Meta Model API.</div></div>
+<div class="rk-row"><div class="rk-n">T3</div><div class="rk-ai"><b>OpenAI</b><span>GPT-6 Astra</span></div><div class="rk-score">53</div><div class="rk-ctx">1M</div><div class="rk-cap">OpenAI's top model on the index. GPT-6.1 Sol (52) comes close on coding and professional work at about a fifth of the cost ($2 in / $10 out per million tokens) with better computer use. Live in ChatGPT Work, Codex and the API.</div></div>
+<div class="rk-row"><div class="rk-n">T3</div><div class="rk-ai"><b>Google</b><span>Gemini 4 Argon</span></div><div class="rk-score">53</div><div class="rk-ctx">1M</div><div class="rk-cap">Announced Sep 30. Google reports 77.9% on DeepSWE v1.1, #1 on AutomationBench (51.3%), 91.7% on LVBench long-video, a 1M-token output limit, and autonomous finding and patching of vulnerabilities. Access was limited at launch; wider rollout planned.</div></div>
+<div class="rk-row"><div class="rk-n">T5</div><div class="rk-ai"><b>xAI</b><span>Grok 4.7</span></div><div class="rk-score">46</div><div class="rk-ctx">500K</div><div class="rk-cap">Released Sep 21. The Grok line targets coding and long-running agents; Grok Voice 3.0 (Oct 14) and Imagine video round out the stack. Capability details for 4.7 itself are thin.</div></div>
+<div class="rk-row"><div class="rk-n">T5</div><div class="rk-ai"><b>Xiaomi</b><span>MiMo-V2.6-Pro</span></div><div class="rk-score">46</div><div class="rk-ctx">1M</div><div class="rk-cap">Top open-weights entry on the index.</div></div>
+<div class="rk-row"><div class="rk-n">T7</div><div class="rk-ai"><b>Alibaba</b><span>Qwen3.8 Max</span></div><div class="rk-score">45</div><div class="rk-ctx">984K</div><div class="rk-cap">Strongest Qwen model on the index.</div></div>
+<div class="rk-row"><div class="rk-n">T7</div><div class="rk-ai"><b>Zhipu (Z AI)</b><span>GLM-5.3</span></div><div class="rk-score">45</div><div class="rk-ctx">1M</div><div class="rk-cap">Open weights.</div></div>
+<div class="rk-row"><div class="rk-n">9</div><div class="rk-ai"><b>Moonshot</b><span>Kimi K3</span></div><div class="rk-score">44</div><div class="rk-ctx">1.05M</div><div class="rk-cap">Open weights.</div></div>
+<div class="rk-row"><div class="rk-n">10</div><div class="rk-ai"><b>DeepSeek</b><span>V4.1 Flash</span></div><div class="rk-score">39</div><div class="rk-ctx">1M</div><div class="rk-cap">Lower-cost Flash tier.</div></div>
+<div class="rk-row"><div class="rk-n">11</div><div class="rk-ai"><b>Mistral</b><span>Large 4 Preview</span></div><div class="rk-score">38</div><div class="rk-ctx">524K</div><div class="rk-cap">Preview release.</div></div>
+<div class="rk-note">// RANKED BY THE ARTIFICIAL ANALYSIS INTELLIGENCE INDEX, BEST CONFIGURATION PER MAKER. ONE BENCHMARK IS NOT THE WHOLE STORY, AND SCORES SHIFT WEEKLY. CAPABILITY NOTES COME FROM EACH MAKER'S OWN ANNOUNCEMENTS AND ARE THEIR CLAIMS. SOURCES: <a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener">ARTIFICIAL ANALYSIS</a> // <a href="https://www.anthropic.com/news" target="_blank" rel="noopener">ANTHROPIC</a> // <a href="https://openai.com/index/introducing-gpt-6-1-sol/" target="_blank" rel="noopener">OPENAI</a> // <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/" target="_blank" rel="noopener">GOOGLE</a> // <a href="https://x.ai/news" target="_blank" rel="noopener">XAI</a></div>
+</div>
+
 <!-- ═══ TOOLS DATABASE ═══ -->
 <div class="sec-hdr" id="tools">
   <span class="sec-hdr-label">// TOOLS DATABASE</span>
